@@ -8,20 +8,20 @@ function Header() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-navy/95 backdrop-blur-sm">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-20">
+      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 flex items-center justify-between h-20">
         <a href="#" className="flex-shrink-0">
           <Image src="/images/logo.png" alt="Approved Expandable Homes" width={160} height={70} className="h-14 w-auto" />
         </a>
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden lg:flex items-center gap-8">
           <a href="#designs" className="text-white hover:text-gold transition-colors text-sm font-medium">Home Designs</a>
           <a href="#how-it-works" className="text-white hover:text-gold transition-colors text-sm font-medium">Building Guide</a>
           <a href="#about" className="text-white hover:text-gold transition-colors text-sm font-medium">About Us</a>
           <a href="#faqs" className="text-white hover:text-gold transition-colors text-sm font-medium">FAQs</a>
-          <a href="#contact" className="bg-gold hover:bg-gold-dark text-white px-6 py-2.5 rounded text-sm font-semibold transition-colors">
+          <a href="#contact" className="bg-gold hover:bg-gold-dark text-white px-6 py-2.5 rounded-full text-sm font-semibold transition-colors">
             GET A QUOTE
           </a>
         </nav>
-        <button onClick={() => setMobileOpen(!mobileOpen)} className="md:hidden text-white p-2" aria-label="Toggle menu">
+        <button onClick={() => setMobileOpen(!mobileOpen)} className="lg:hidden text-white p-2" aria-label="Toggle menu">
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             {mobileOpen ? (
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -32,12 +32,12 @@ function Header() {
         </button>
       </div>
       {mobileOpen && (
-        <div className="md:hidden bg-navy border-t border-white/10 px-4 pb-4">
+        <div className="lg:hidden bg-navy border-t border-white/10 px-6 pb-4">
           <a href="#designs" onClick={() => setMobileOpen(false)} className="block py-3 text-white hover:text-gold text-sm">Home Designs</a>
           <a href="#how-it-works" onClick={() => setMobileOpen(false)} className="block py-3 text-white hover:text-gold text-sm">Building Guide</a>
           <a href="#about" onClick={() => setMobileOpen(false)} className="block py-3 text-white hover:text-gold text-sm">About Us</a>
           <a href="#faqs" onClick={() => setMobileOpen(false)} className="block py-3 text-white hover:text-gold text-sm">FAQs</a>
-          <a href="#contact" onClick={() => setMobileOpen(false)} className="block mt-2 bg-gold text-white px-6 py-2.5 rounded text-sm font-semibold text-center">GET A QUOTE</a>
+          <a href="#contact" onClick={() => setMobileOpen(false)} className="block mt-2 bg-gold text-white px-6 py-2.5 rounded-full text-sm font-semibold text-center">GET A QUOTE</a>
         </div>
       )}
     </header>
@@ -51,21 +51,21 @@ function Hero() {
         <Image src="/images/hero-home.jpeg" alt="Expandable Home" fill className="object-cover" priority />
         <div className="absolute inset-0 bg-gradient-to-r from-navy/80 via-navy/50 to-transparent" />
       </div>
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <div className="relative max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 py-20 w-full">
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight max-w-2xl">
-          Australian Council{" "}
-          <br />Approved{" "}
-          <br /><span className="text-gold">Expandable</span> Homes
+          Australian Council<br />
+          Approved<br />
+          <span className="text-gold">Expandable</span> Homes
         </h1>
         <p className="mt-4 text-white/90 text-lg">
           From $65,000 &bull; 1, 2 &amp; 3 Bedroom Layouts &bull; Custom Designed
         </p>
         <div className="mt-8 flex flex-wrap gap-4">
-          <a href="#sizes" className="inline-flex items-center gap-2 bg-gold hover:bg-gold-dark text-white px-8 py-3.5 rounded font-semibold transition-colors">
+          <a href="#sizes" className="inline-flex items-center gap-2 bg-gold hover:bg-gold-dark text-white px-8 py-3.5 rounded-full font-semibold transition-colors text-sm">
             VIEW OUR RANGE
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
           </a>
-          <a href="#contact" className="inline-flex items-center gap-2 border-2 border-white text-white px-8 py-3.5 rounded font-semibold hover:bg-white/10 transition-colors">
+          <a href="#contact" className="inline-flex items-center gap-2 border-2 border-white text-white px-8 py-3.5 rounded-full font-semibold hover:bg-white/10 transition-colors text-sm">
             GET A QUOTE
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
           </a>
@@ -84,9 +84,9 @@ function FeatureStrip() {
   ];
 
   return (
-    <section className="bg-white py-12 border-b border-gray-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+    <section className="bg-white py-14 border-b border-gray-100">
+      <div className="max-w-6xl mx-auto px-6 sm:px-10 lg:px-16">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-10">
           {features.map((f) => (
             <div key={f.title} className="text-center">
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-full border-2 border-gold mb-4">
@@ -95,7 +95,7 @@ function FeatureStrip() {
                 </svg>
               </div>
               <h3 className="font-bold text-navy text-sm">{f.title}</h3>
-              <p className="text-gray-500 text-xs mt-1">{f.desc}</p>
+              <p className="text-gray-500 text-xs mt-1 leading-relaxed">{f.desc}</p>
             </div>
           ))}
         </div>
@@ -112,27 +112,27 @@ function ThreeSizes() {
   ];
 
   return (
-    <section id="sizes" className="py-16 lg:py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="lg:flex lg:items-start lg:gap-12">
-          <div className="lg:w-1/4 mb-8 lg:mb-0">
-            <h2 className="text-2xl lg:text-3xl font-bold text-navy">THREE FLEXIBLE SIZES</h2>
-            <p className="text-gray-600 mt-3 text-sm">Smart designs. Maximum space. Built to fit your lifestyle and block.</p>
-            <a href="#designs" className="inline-flex items-center gap-2 mt-4 border-2 border-navy text-navy px-5 py-2 rounded text-sm font-semibold hover:bg-navy hover:text-white transition-colors">
+    <section id="sizes" className="py-16 lg:py-24 bg-white">
+      <div className="max-w-6xl mx-auto px-6 sm:px-10 lg:px-16">
+        <div className="grid lg:grid-cols-[240px_1fr] gap-10 lg:gap-16 items-start">
+          <div>
+            <h2 className="text-xl lg:text-2xl font-bold text-navy leading-tight">THREE FLEXIBLE SIZES</h2>
+            <p className="text-gray-500 mt-3 text-sm leading-relaxed">Smart designs. Maximum space. Built to fit your lifestyle and block.</p>
+            <a href="#designs" className="inline-flex items-center gap-2 mt-5 border-2 border-navy text-navy px-5 py-2.5 rounded-full text-xs font-semibold hover:bg-navy hover:text-white transition-colors">
               VIEW ALL SIZES
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
             </a>
           </div>
-          <div className="lg:w-3/4 grid sm:grid-cols-3 gap-6">
+          <div className="grid sm:grid-cols-3 gap-8">
             {sizes.map((s) => (
               <div key={s.size} className="group">
-                <div className="relative aspect-[4/3] rounded-lg overflow-hidden bg-gray-100">
+                <div className="relative aspect-[4/3] rounded-xl overflow-hidden bg-gray-100 shadow-sm">
                   <Image src={s.img} alt={`${s.size} Home`} fill className="object-cover group-hover:scale-105 transition-transform duration-300" />
                 </div>
-                <h3 className="font-bold text-navy mt-4 text-lg">{s.size} HOMES</h3>
-                <p className="text-gray-500 text-sm mt-1">{s.desc}</p>
+                <h3 className="font-bold text-navy mt-4 text-base">{s.size} HOMES</h3>
+                <p className="text-gray-500 text-sm mt-1 leading-relaxed">{s.desc}</p>
                 <a href="#contact" className="inline-flex items-center gap-1 text-gold font-semibold text-sm mt-2 hover:text-gold-dark transition-colors">
-                  VIEW DETAILS
+                  View Details
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
                 </a>
               </div>
@@ -152,41 +152,41 @@ function ExploreDesigns() {
   ];
 
   return (
-    <section id="designs" className="py-16 lg:py-20 bg-cream">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="lg:flex lg:items-start lg:gap-12">
-          <div className="lg:w-1/4 mb-8 lg:mb-0">
-            <h2 className="text-2xl lg:text-3xl font-bold text-navy">EXPLORE HOME DESIGNS</h2>
-            <p className="text-gray-600 mt-3 text-sm">Beautiful designs. Functional spaces. Built for real life.</p>
-            <a href="#contact" className="inline-flex items-center gap-2 mt-4 border-2 border-navy text-navy px-5 py-2 rounded text-sm font-semibold hover:bg-navy hover:text-white transition-colors">
+    <section id="designs" className="py-16 lg:py-24 bg-gray-warm">
+      <div className="max-w-6xl mx-auto px-6 sm:px-10 lg:px-16">
+        <div className="grid lg:grid-cols-[240px_1fr] gap-10 lg:gap-16 items-start">
+          <div>
+            <h2 className="text-xl lg:text-2xl font-bold text-navy leading-tight">EXPLORE HOME DESIGNS</h2>
+            <p className="text-gray-500 mt-3 text-sm leading-relaxed">Beautiful designs. Functional spaces. Built for real life.</p>
+            <a href="#contact" className="inline-flex items-center gap-2 mt-5 border-2 border-navy text-navy px-5 py-2.5 rounded-full text-xs font-semibold hover:bg-navy hover:text-white transition-colors">
               VIEW ALL DESIGNS
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
             </a>
           </div>
-          <div className="lg:w-3/4 grid sm:grid-cols-3 gap-6">
+          <div className="grid sm:grid-cols-3 gap-8">
             {designs.map((d) => (
               <div key={d.name} className="group">
-                <div className="relative aspect-[4/3] rounded-lg overflow-hidden bg-gray-200">
+                <div className="relative aspect-[4/3] rounded-xl overflow-hidden bg-gray-200 shadow-sm">
                   <Image src={d.img} alt={d.name} fill className="object-cover group-hover:scale-105 transition-transform duration-300" />
                 </div>
-                <h3 className="font-bold text-navy mt-4 text-lg">{d.name}</h3>
-                <div className="flex items-center gap-4 text-gray-500 text-xs mt-1">
+                <h3 className="font-bold text-navy mt-4 text-base">{d.name}</h3>
+                <div className="flex items-center gap-3 text-gray-400 text-xs mt-1.5">
                   <span className="flex items-center gap-1">
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg>
+                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg>
                     {d.beds} Bed
                   </span>
                   <span className="flex items-center gap-1">
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14" /></svg>
+                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14" /></svg>
                     {d.baths} Bath
                   </span>
                   <span className="flex items-center gap-1">
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" /></svg>
+                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" /></svg>
                     {d.size}
                   </span>
                 </div>
-                <p className="text-gray-500 text-sm mt-2">{d.desc}</p>
+                <p className="text-gray-500 text-sm mt-2 leading-relaxed">{d.desc}</p>
                 <a href="#contact" className="inline-flex items-center gap-1 text-gold font-semibold text-sm mt-2 hover:text-gold-dark transition-colors">
-                  VIEW DESIGN
+                  View Design
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
                 </a>
               </div>
@@ -207,25 +207,29 @@ function WhyChoose() {
   ];
 
   return (
-    <section id="about" className="relative py-16 lg:py-20">
-      <div className="absolute inset-0">
-        <Image src="/images/interior-living.jpg" alt="Interior" fill className="object-cover" />
-        <div className="absolute inset-0 bg-navy/90" />
-      </div>
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 className="text-2xl lg:text-3xl font-bold text-white">WHY CHOOSE APPROVED EXPANDABLE HOMES?</h2>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
-          {reasons.map((r) => (
-            <div key={r.title} className="text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full border-2 border-gold mb-4">
-                <svg className="w-8 h-8 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d={r.icon} />
-                </svg>
-              </div>
-              <h3 className="font-bold text-gold text-sm">{r.title}</h3>
-              <p className="text-white/70 text-xs mt-2">{r.desc}</p>
+    <section id="about" className="py-8 lg:py-12 bg-white">
+      <div className="max-w-6xl mx-auto px-6 sm:px-10 lg:px-16">
+        <div className="relative rounded-2xl overflow-hidden py-16 lg:py-20 px-6 sm:px-10 lg:px-16">
+          <div className="absolute inset-0">
+            <Image src="/images/interior-living.jpg" alt="Interior" fill className="object-cover" />
+            <div className="absolute inset-0 bg-navy/90" />
+          </div>
+          <div className="relative text-center">
+            <h2 className="text-xl lg:text-2xl font-bold text-white">WHY CHOOSE APPROVED EXPANDABLE HOMES?</h2>
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10 mt-12">
+              {reasons.map((r) => (
+                <div key={r.title} className="text-center">
+                  <div className="inline-flex items-center justify-center w-14 h-14 rounded-full border-2 border-gold mb-4">
+                    <svg className="w-7 h-7 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d={r.icon} />
+                    </svg>
+                  </div>
+                  <h3 className="font-bold text-gold text-xs leading-snug">{r.title}</h3>
+                  <p className="text-white/60 text-xs mt-2 leading-relaxed">{r.desc}</p>
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
         </div>
       </div>
     </section>
@@ -241,32 +245,32 @@ function HowItWorks() {
   ];
 
   return (
-    <section id="how-it-works" className="py-16 lg:py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="lg:flex lg:items-start lg:gap-12">
-          <div className="lg:w-1/4 mb-8 lg:mb-0">
-            <h2 className="text-2xl lg:text-3xl font-bold text-navy">HOW IT WORKS</h2>
-            <p className="text-gray-600 mt-3 text-sm">A simple 4-step process from design to delivery.</p>
-            <a href="#contact" className="inline-flex items-center gap-2 mt-4 border-2 border-navy text-navy px-5 py-2 rounded text-sm font-semibold hover:bg-navy hover:text-white transition-colors">
+    <section id="how-it-works" className="py-16 lg:py-24 bg-gray-warm">
+      <div className="max-w-6xl mx-auto px-6 sm:px-10 lg:px-16">
+        <div className="grid lg:grid-cols-[240px_1fr] gap-10 lg:gap-16 items-start">
+          <div>
+            <h2 className="text-xl lg:text-2xl font-bold text-navy leading-tight">HOW IT WORKS</h2>
+            <p className="text-gray-500 mt-3 text-sm leading-relaxed">A simple 4-step process from design to delivery.</p>
+            <a href="#contact" className="inline-flex items-center gap-2 mt-5 border-2 border-navy text-navy px-5 py-2.5 rounded-full text-xs font-semibold hover:bg-navy hover:text-white transition-colors">
               LEARN MORE
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
             </a>
           </div>
-          <div className="lg:w-3/4">
-            <div className="grid sm:grid-cols-4 gap-6 relative">
-              <div className="hidden sm:block absolute top-8 left-[12.5%] right-[12.5%] h-0.5 bg-gold/30" />
+          <div>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 relative">
+              <div className="hidden sm:block absolute top-6 left-[12.5%] right-[12.5%] h-px bg-gold/20" style={{ top: '28px' }} />
               {steps.map((s) => (
                 <div key={s.num} className="text-center relative">
-                  <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gold text-white text-xl font-bold mb-4 relative z-10">
+                  <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-gold text-white text-lg font-bold mb-3 relative z-10 shadow-md">
                     {s.num}
                   </div>
-                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-full border-2 border-gold/30 mb-3">
-                    <svg className="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="inline-flex items-center justify-center w-10 h-10 rounded-full border border-gold/20 mb-3">
+                    <svg className="w-5 h-5 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d={s.icon} />
                     </svg>
                   </div>
                   <h3 className="font-bold text-navy text-xs">{s.title}</h3>
-                  <p className="text-gray-500 text-xs mt-1">{s.desc}</p>
+                  <p className="text-gray-400 text-xs mt-1 leading-relaxed">{s.desc}</p>
                 </div>
               ))}
             </div>
@@ -281,12 +285,12 @@ function CustomiseSection() {
   const options = ["Layout Options", "Cladding Choices", "Flooring Selections", "Window & Door Options", "Accessories & Inclusions"];
 
   return (
-    <section className="py-16 lg:py-20 bg-cream">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="lg:flex lg:items-center lg:gap-12">
-          <div className="lg:w-1/3 mb-8 lg:mb-0">
-            <h2 className="text-2xl lg:text-3xl font-bold text-navy">CUSTOMISE YOUR HOME</h2>
-            <p className="text-gray-600 mt-3 text-sm">Make it yours with a wide range of options and premium finishes.</p>
+    <section className="py-16 lg:py-24 bg-white">
+      <div className="max-w-6xl mx-auto px-6 sm:px-10 lg:px-16">
+        <div className="grid lg:grid-cols-3 gap-12 lg:gap-16 items-center">
+          <div>
+            <h2 className="text-xl lg:text-2xl font-bold text-navy leading-tight">CUSTOMISE YOUR HOME</h2>
+            <p className="text-gray-500 mt-3 text-sm leading-relaxed">Make it yours with a wide range of options and premium finishes.</p>
             <ul className="mt-6 space-y-3">
               {options.map((opt) => (
                 <li key={opt} className="flex items-center gap-3 text-sm text-gray-700">
@@ -298,16 +302,16 @@ function CustomiseSection() {
               ))}
             </ul>
           </div>
-          <div className="lg:w-1/3">
-            <div className="relative aspect-[3/4] rounded-lg overflow-hidden shadow-lg">
+          <div>
+            <div className="relative aspect-[3/4] rounded-xl overflow-hidden shadow-lg">
               <Image src="/images/floor-plan.jpg" alt="Floor Plan" fill className="object-cover" />
             </div>
           </div>
-          <div className="lg:w-1/3 mt-8 lg:mt-0">
+          <div>
             <h3 className="text-xl font-bold text-navy italic">Delivery Australia Wide</h3>
-            <p className="text-gray-600 text-sm mt-2">From the city to the coast, we deliver Australia wide.</p>
+            <p className="text-gray-500 text-sm mt-2 leading-relaxed">From the city to the coast, we deliver Australia wide.</p>
             <div className="mt-6">
-              <svg viewBox="0 0 400 380" className="w-full max-w-xs mx-auto" fill="none">
+              <svg viewBox="0 0 400 380" className="w-full max-w-[280px] mx-auto lg:mx-0" fill="none">
                 <path d="M155 30 L185 25 L220 15 L260 20 L300 30 L340 55 L360 85 L370 120 L375 160 L365 200 L355 230 L340 260 L320 285 L295 305 L265 320 L235 335 L210 345 L185 350 L160 345 L140 335 L120 315 L100 290 L80 265 L65 235 L55 205 L50 175 L55 145 L65 115 L80 85 L100 60 L125 42 Z" fill="#f0ebe0" stroke="#c8a962" strokeWidth="2" />
                 <path d="M310 270 L325 260 L340 265 L345 280 L335 290 L320 285 Z" fill="#f0ebe0" stroke="#c8a962" strokeWidth="2" />
                 <circle cx="300" cy="140" r="6" fill="#c8a962" />
@@ -346,10 +350,10 @@ function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section id="faqs" className="py-16 lg:py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between mb-8">
-          <h2 className="text-2xl lg:text-3xl font-bold text-navy">FREQUENTLY ASKED QUESTIONS</h2>
+    <section id="faqs" className="py-16 lg:py-24 bg-gray-warm">
+      <div className="max-w-6xl mx-auto px-6 sm:px-10 lg:px-16">
+        <div className="flex items-center justify-between mb-10">
+          <h2 className="text-xl lg:text-2xl font-bold text-navy">FREQUENTLY ASKED QUESTIONS</h2>
           <a href="#contact" className="hidden sm:inline-flex items-center gap-1 text-gold font-semibold text-sm hover:text-gold-dark">
             VIEW ALL FAQS
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
@@ -357,18 +361,18 @@ function FAQSection() {
         </div>
         <div className="grid md:grid-cols-2 gap-4">
           {faqs.map((faq, i) => (
-            <div key={i} className="border border-gray-200 rounded-lg">
+            <div key={i} className="border border-gray-200 rounded-xl bg-white">
               <button
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
-                className="w-full flex items-center justify-between p-4 text-left"
+                className="w-full flex items-center justify-between p-5 text-left"
               >
                 <span className="text-sm font-medium text-navy">{faq.q}</span>
-                <svg className={`w-5 h-5 text-gold flex-shrink-0 ml-2 transition-transform ${openIndex === i ? "rotate-45" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className={`w-5 h-5 text-gold flex-shrink-0 ml-3 transition-transform ${openIndex === i ? "rotate-45" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
                 </svg>
               </button>
               {openIndex === i && (
-                <div className="px-4 pb-4 text-sm text-gray-600">{faq.a}</div>
+                <div className="px-5 pb-5 text-sm text-gray-500 leading-relaxed">{faq.a}</div>
               )}
             </div>
           ))}
@@ -381,20 +385,20 @@ function FAQSection() {
 function ContactForm() {
   return (
     <section id="contact" className="py-16 lg:py-20 bg-navy">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col lg:flex-row items-center gap-12">
-          <div className="lg:w-1/3 text-center lg:text-left">
+      <div className="max-w-6xl mx-auto px-6 sm:px-10 lg:px-16">
+        <div className="grid lg:grid-cols-[280px_1fr] gap-12 items-center">
+          <div className="text-center lg:text-left">
             <Image src="/images/logo.png" alt="Approved Expandable Homes" width={200} height={90} className="mx-auto lg:mx-0 mb-4" />
-            <p className="text-white/70 text-sm">Australian Council Approved<br />Expandable Homes</p>
+            <p className="text-white/60 text-sm">Australian Council Approved<br />Expandable Homes</p>
           </div>
-          <div className="lg:w-2/3 w-full">
+          <div>
             <div className="grid sm:grid-cols-2 gap-4">
-              <input type="text" placeholder="Full Name" className="w-full px-4 py-3 rounded bg-navy-light border border-white/20 text-white placeholder-white/40 text-sm focus:outline-none focus:border-gold" />
-              <input type="email" placeholder="Email Address" className="w-full px-4 py-3 rounded bg-navy-light border border-white/20 text-white placeholder-white/40 text-sm focus:outline-none focus:border-gold" />
-              <input type="tel" placeholder="Phone Number" className="w-full px-4 py-3 rounded bg-navy-light border border-white/20 text-white placeholder-white/40 text-sm focus:outline-none focus:border-gold" />
-              <input type="text" placeholder="Postcode" className="w-full px-4 py-3 rounded bg-navy-light border border-white/20 text-white placeholder-white/40 text-sm focus:outline-none focus:border-gold" />
+              <input type="text" placeholder="Full Name" className="w-full px-4 py-3.5 rounded-lg bg-navy-light border border-white/20 text-white placeholder-white/40 text-sm focus:outline-none focus:border-gold transition-colors" />
+              <input type="email" placeholder="Email Address" className="w-full px-4 py-3.5 rounded-lg bg-navy-light border border-white/20 text-white placeholder-white/40 text-sm focus:outline-none focus:border-gold transition-colors" />
+              <input type="tel" placeholder="Phone Number" className="w-full px-4 py-3.5 rounded-lg bg-navy-light border border-white/20 text-white placeholder-white/40 text-sm focus:outline-none focus:border-gold transition-colors" />
+              <input type="text" placeholder="Postcode" className="w-full px-4 py-3.5 rounded-lg bg-navy-light border border-white/20 text-white placeholder-white/40 text-sm focus:outline-none focus:border-gold transition-colors" />
             </div>
-            <button className="w-full mt-4 bg-gold hover:bg-gold-dark text-white py-3.5 rounded font-semibold transition-colors flex items-center justify-center gap-2">
+            <button className="w-full mt-4 bg-gold hover:bg-gold-dark text-white py-3.5 rounded-lg font-semibold transition-colors flex items-center justify-center gap-2 text-sm">
               REQUEST A QUOTE
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
             </button>
@@ -407,43 +411,43 @@ function ContactForm() {
 
 function Footer() {
   return (
-    <footer className="bg-navy border-t border-white/10 py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-8">
+    <footer className="bg-navy border-t border-white/10 py-14">
+      <div className="max-w-6xl mx-auto px-6 sm:px-10 lg:px-16">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-10">
           <div>
             <Image src="/images/logo.png" alt="Approved Expandable Homes" width={140} height={60} className="mb-4" />
           </div>
           <div>
             <h4 className="text-white font-bold text-sm mb-4">NAVIGATION</h4>
-            <ul className="space-y-2">
-              <li><a href="#designs" className="text-white/60 hover:text-gold text-sm transition-colors">Home Designs</a></li>
-              <li><a href="#how-it-works" className="text-white/60 hover:text-gold text-sm transition-colors">Building Guide</a></li>
-              <li><a href="#about" className="text-white/60 hover:text-gold text-sm transition-colors">About Us</a></li>
-              <li><a href="#faqs" className="text-white/60 hover:text-gold text-sm transition-colors">FAQs</a></li>
+            <ul className="space-y-2.5">
+              <li><a href="#designs" className="text-white/50 hover:text-gold text-sm transition-colors">Home Designs</a></li>
+              <li><a href="#how-it-works" className="text-white/50 hover:text-gold text-sm transition-colors">Building Guide</a></li>
+              <li><a href="#about" className="text-white/50 hover:text-gold text-sm transition-colors">About Us</a></li>
+              <li><a href="#faqs" className="text-white/50 hover:text-gold text-sm transition-colors">FAQs</a></li>
             </ul>
           </div>
           <div>
             <h4 className="text-white font-bold text-sm mb-4">POPULAR</h4>
-            <ul className="space-y-2">
-              <li><a href="#sizes" className="text-white/60 hover:text-gold text-sm transition-colors">20ft Homes</a></li>
-              <li><a href="#sizes" className="text-white/60 hover:text-gold text-sm transition-colors">30ft Homes</a></li>
-              <li><a href="#sizes" className="text-white/60 hover:text-gold text-sm transition-colors">40ft Homes</a></li>
-              <li><a href="#designs" className="text-white/60 hover:text-gold text-sm transition-colors">All Designs</a></li>
-              <li><a href="#" className="text-white/60 hover:text-gold text-sm transition-colors">Australia Wide Delivery</a></li>
+            <ul className="space-y-2.5">
+              <li><a href="#sizes" className="text-white/50 hover:text-gold text-sm transition-colors">20ft Homes</a></li>
+              <li><a href="#sizes" className="text-white/50 hover:text-gold text-sm transition-colors">30ft Homes</a></li>
+              <li><a href="#sizes" className="text-white/50 hover:text-gold text-sm transition-colors">40ft Homes</a></li>
+              <li><a href="#designs" className="text-white/50 hover:text-gold text-sm transition-colors">All Designs</a></li>
+              <li><a href="#" className="text-white/50 hover:text-gold text-sm transition-colors">Australia Wide Delivery</a></li>
             </ul>
           </div>
           <div>
             <h4 className="text-white font-bold text-sm mb-4">CONTACT US</h4>
-            <ul className="space-y-2">
-              <li className="flex items-center gap-2 text-white/60 text-sm">
+            <ul className="space-y-2.5">
+              <li className="flex items-center gap-2 text-white/50 text-sm">
                 <svg className="w-4 h-4 text-gold flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
                 0415 228 171
               </li>
-              <li className="flex items-center gap-2 text-white/60 text-sm">
+              <li className="flex items-center gap-2 text-white/50 text-sm">
                 <svg className="w-4 h-4 text-gold flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
                 info@approvedexpandablehomes.com.au
               </li>
-              <li className="flex items-start gap-2 text-white/60 text-sm">
+              <li className="flex items-start gap-2 text-white/50 text-sm">
                 <svg className="w-4 h-4 text-gold mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
                 Australia Wide Delivery
               </li>
@@ -453,7 +457,7 @@ function Footer() {
             <h4 className="text-white font-bold text-sm mb-4">FOLLOW US</h4>
             <div className="flex gap-3">
               {["facebook", "instagram", "youtube", "pinterest"].map((social) => (
-                <a key={social} href="#" className="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:border-gold hover:text-gold transition-colors" aria-label={social}>
+                <a key={social} href="#" className="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-white/50 hover:border-gold hover:text-gold transition-colors" aria-label={social}>
                   {social === "facebook" && <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" /></svg>}
                   {social === "instagram" && <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" strokeWidth="2" /><circle cx="12" cy="12" r="5" strokeWidth="2" /><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" /></svg>}
                   {social === "youtube" && <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M23 9.71a8.5 8.5 0 00-.91-4.13 2.92 2.92 0 00-1.72-1A78.36 78.36 0 0012 4.27a78.45 78.45 0 00-8.34.3 2.87 2.87 0 00-1.46.74c-.9.83-1 2.25-1.1 3.45a48.29 48.29 0 000 6.48 9.55 9.55 0 00.64 2.79 2.67 2.67 0 001.6 1.33c1.06.28 5.23.43 8.66.43s7.59-.16 8.65-.43a2.65 2.65 0 001.6-1.33 9.37 9.37 0 00.64-2.79c.1-.86.22-1.72.22-2.59v-1.68zM9.74 14.85V8.84l5.73 3-5.73 3.01z" /></svg>}
@@ -464,10 +468,10 @@ function Footer() {
           </div>
         </div>
         <div className="mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-white/40 text-xs">&copy; {new Date().getFullYear()} Approved Expandable Homes. All Rights Reserved.</p>
+          <p className="text-white/30 text-xs">&copy; {new Date().getFullYear()} Approved Expandable Homes. All Rights Reserved.</p>
           <div className="flex gap-6">
-            <a href="#" className="text-white/40 hover:text-white/60 text-xs transition-colors">Privacy Policy</a>
-            <a href="#" className="text-white/40 hover:text-white/60 text-xs transition-colors">Terms &amp; Conditions</a>
+            <a href="#" className="text-white/30 hover:text-white/50 text-xs transition-colors">Privacy Policy</a>
+            <a href="#" className="text-white/30 hover:text-white/50 text-xs transition-colors">Terms &amp; Conditions</a>
           </div>
         </div>
       </div>
