@@ -62,11 +62,11 @@ function Hero() {
   return (
     <section className="relative min-h-[560px] lg:min-h-[620px] flex flex-col bg-[#0f141a] overflow-hidden">
       <div className="absolute inset-0 z-[1]">
-        <Image src="/images/hero-home.jpeg" alt="Expandable Home" fill className="object-cover object-[center_right]" preload />
+        <Image src="/images/hero-bg.png" alt="Expandable Home" fill className="object-cover object-[center_right]" preload />
       </div>
       {/* gradient shades */}
-      <div className="absolute inset-0 z-[2]" style={{ background: 'linear-gradient(90deg, rgba(15,20,26,0.98) 0%, rgba(15,20,26,0.88) 26%, rgba(15,20,26,0.55) 46%, rgba(15,20,26,0.15) 70%, rgba(15,20,26,0.05) 100%)' }} />
-      <div className="absolute inset-0 z-[3] pointer-events-none" style={{ background: 'linear-gradient(180deg, transparent 65%, rgba(15,20,26,0.4) 100%)' }} />
+      <div className="absolute inset-0 z-[2]" style={{ background: 'linear-gradient(90deg, rgba(15,20,26,0.92) 0%, rgba(15,20,26,0.78) 25%, rgba(15,20,26,0.4) 50%, rgba(15,20,26,0.08) 70%, transparent 100%)' }} />
+      <div className="absolute inset-0 z-[3] pointer-events-none" style={{ background: 'linear-gradient(180deg, transparent 65%, rgba(15,20,26,0.3) 100%)' }} />
 
       {/* spacer for fixed nav */}
       <div className="h-[72px]" />
