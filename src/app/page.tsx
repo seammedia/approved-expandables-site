@@ -3,8 +3,15 @@
 import Image from "next/image";
 import { useState } from "react";
 
+/* ───────────────────────── HEADER ───────────────────────── */
 function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
+
+  const chevron = (
+    <svg className="w-3 h-3 ml-1 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+    </svg>
+  );
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-navy/95 backdrop-blur-sm">
@@ -13,10 +20,15 @@ function Header() {
           <Image src="/images/logo.png" alt="Approved Expandable Homes" width={160} height={70} className="h-14 w-auto" />
         </a>
         <nav className="hidden lg:flex items-center gap-8">
-          <a href="#designs" className="text-white hover:text-gold transition-colors text-sm font-medium">Home Designs</a>
-          <a href="#how-it-works" className="text-white hover:text-gold transition-colors text-sm font-medium">Building Guide</a>
+          <a href="#designs" className="flex items-center text-white hover:text-gold transition-colors text-sm font-medium">
+            Home Designs {chevron}
+          </a>
+          <a href="#how-it-works" className="flex items-center text-white hover:text-gold transition-colors text-sm font-medium">
+            Building Guide {chevron}
+          </a>
           <a href="#about" className="text-white hover:text-gold transition-colors text-sm font-medium">About Us</a>
           <a href="#faqs" className="text-white hover:text-gold transition-colors text-sm font-medium">FAQs</a>
+          <a href="#meet-brett" className="text-white hover:text-gold transition-colors text-sm font-medium">Meet Brett</a>
           <a href="#contact" className="bg-gold hover:bg-gold-dark text-white px-6 py-2.5 rounded-full text-sm font-semibold transition-colors">
             GET A QUOTE
           </a>
@@ -37,6 +49,7 @@ function Header() {
           <a href="#how-it-works" onClick={() => setMobileOpen(false)} className="block py-3 text-white hover:text-gold text-sm">Building Guide</a>
           <a href="#about" onClick={() => setMobileOpen(false)} className="block py-3 text-white hover:text-gold text-sm">About Us</a>
           <a href="#faqs" onClick={() => setMobileOpen(false)} className="block py-3 text-white hover:text-gold text-sm">FAQs</a>
+          <a href="#meet-brett" onClick={() => setMobileOpen(false)} className="block py-3 text-white hover:text-gold text-sm">Meet Brett</a>
           <a href="#contact" onClick={() => setMobileOpen(false)} className="block mt-2 bg-gold text-white px-6 py-2.5 rounded-full text-sm font-semibold text-center">GET A QUOTE</a>
         </div>
       )}
@@ -44,11 +57,12 @@ function Header() {
   );
 }
 
+/* ───────────────────────── HERO ───────────────────────── */
 function Hero() {
   return (
     <section className="relative min-h-[600px] lg:min-h-[700px] flex items-center pt-20">
       <div className="absolute inset-0">
-        <Image src="/images/hero-home.jpeg" alt="Expandable Home" fill className="object-cover" priority />
+        <Image src="/images/hero-home.jpeg" alt="Expandable Home" fill className="object-cover" preload />
         <div className="absolute inset-0 bg-gradient-to-r from-navy/80 via-navy/50 to-transparent" />
       </div>
       <div className="relative max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 py-20 w-full">
@@ -75,18 +89,20 @@ function Hero() {
   );
 }
 
+/* ───────────────────────── FEATURE STRIP ───────────────────────── */
 function FeatureStrip() {
   const features = [
     { icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z", title: "Council Approved", desc: "Class 1a building approval compliant across Australia" },
     { icon: "M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z", title: "Custom Designed", desc: "Tailored layouts, finishes and inclusions" },
     { icon: "M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z", title: "One-Step Certified", desc: "Engineered, certified and ready to build" },
     { icon: "M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z M15 11a3 3 0 11-6 0 3 3 0 016 0z", title: "Australia Wide Delivery", desc: "Delivered to your site, coast to coast" },
+    { icon: "M12 3v1m0 16v1m8.66-13.66l-.71.71M4.05 19.95l-.71.71M21 12h-1M4 12H3m16.66 7.66l-.71-.71M4.05 4.05l-.71-.71M16 12a4 4 0 11-8 0 4 4 0 018 0z", title: "Cyclone Rated Builds", desc: "Cyclone-rated homes for northern coastal Australia" },
   ];
 
   return (
     <section className="bg-white py-14 border-b border-gray-100">
       <div className="max-w-6xl mx-auto px-6 sm:px-10 lg:px-16">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-10">
+        <div className="grid grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-6">
           {features.map((f) => (
             <div key={f.title} className="text-center">
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-full border-2 border-gold mb-4">
@@ -104,6 +120,7 @@ function FeatureStrip() {
   );
 }
 
+/* ───────────────────────── THREE SIZES ───────────────────────── */
 function ThreeSizes() {
   const sizes = [
     { size: "20FT", img: "/images/size-20ft.jpeg", desc: "Perfect for studios, guest homes or compact living." },
@@ -144,6 +161,7 @@ function ThreeSizes() {
   );
 }
 
+/* ───────────────────────── EXPLORE DESIGNS ───────────────────────── */
 function ExploreDesigns() {
   const designs = [
     { name: "ASCOT", img: "/images/design-ascot.jpeg", beds: 2, baths: 1, size: "30ft", desc: "Open plan living with a modern, airy feel." },
@@ -198,36 +216,40 @@ function ExploreDesigns() {
   );
 }
 
+/* ───────────────────────── WHY CHOOSE ───────────────────────── */
 function WhyChoose() {
   const reasons = [
     { icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z", title: "Class 1a Council Approval", desc: "Built to meet Australian Standards for complete peace of mind." },
     { icon: "M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z", title: "Custom Layouts & Finishes", desc: "Choose your layout, cladding, flooring and finishes to suit you." },
     { icon: "M13 10V3L4 14h7v7l9-11h-7z", title: "Fast, Reliable Delivery", desc: "Engineered off-site for faster build times and on-time delivery." },
-    { icon: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4", title: "Streamlined Approval Process", desc: "We handle the paperwork so you can focus on the excitement." },
+    { icon: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4", title: "Streamlined Approval Process", desc: "We aim to complete your approval and start site works before your home arrives." },
   ];
 
   return (
     <section id="about" className="py-8 lg:py-12 bg-white">
       <div className="max-w-6xl mx-auto px-6 sm:px-10 lg:px-16">
-        <div className="relative rounded-2xl overflow-hidden py-16 lg:py-20 px-6 sm:px-10 lg:px-16">
-          <div className="absolute inset-0">
-            <Image src="/images/interior-living.jpg" alt="Interior" fill className="object-cover" />
-            <div className="absolute inset-0 bg-navy/90" />
-          </div>
-          <div className="relative text-center">
-            <h2 className="text-xl lg:text-2xl font-bold text-white">WHY CHOOSE APPROVED EXPANDABLE HOMES?</h2>
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10 mt-12">
-              {reasons.map((r) => (
-                <div key={r.title} className="text-center">
-                  <div className="inline-flex items-center justify-center w-14 h-14 rounded-full border-2 border-gold mb-4">
-                    <svg className="w-7 h-7 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d={r.icon} />
-                    </svg>
+        <div className="rounded-2xl overflow-hidden bg-navy">
+          <div className="grid lg:grid-cols-[300px_1fr]">
+            {/* Left - visible house image */}
+            <div className="relative hidden lg:block min-h-[320px]">
+              <Image src="/images/hero-secondary.jpeg" alt="Expandable Home Exterior" fill className="object-cover" />
+            </div>
+            {/* Right - content */}
+            <div className="py-14 lg:py-16 px-8 sm:px-12 lg:px-14">
+              <h2 className="text-xl lg:text-2xl font-bold text-white text-center">WHY CHOOSE APPROVED EXPANDABLE HOMES?</h2>
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6 mt-12">
+                {reasons.map((r) => (
+                  <div key={r.title} className="text-center">
+                    <div className="inline-flex items-center justify-center w-14 h-14 rounded-full border-2 border-gold mb-4">
+                      <svg className="w-7 h-7 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d={r.icon} />
+                      </svg>
+                    </div>
+                    <h3 className="font-bold text-gold text-xs leading-snug">{r.title}</h3>
+                    <p className="text-white/60 text-xs mt-2 leading-relaxed">{r.desc}</p>
                   </div>
-                  <h3 className="font-bold text-gold text-xs leading-snug">{r.title}</h3>
-                  <p className="text-white/60 text-xs mt-2 leading-relaxed">{r.desc}</p>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -236,11 +258,12 @@ function WhyChoose() {
   );
 }
 
+/* ───────────────────────── HOW IT WORKS ───────────────────────── */
 function HowItWorks() {
   const steps = [
     { num: 1, icon: "M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6", title: "DESIGN SELECTION", desc: "Choose your home design or customise your own." },
-    { num: 2, icon: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z", title: "APPROVE & ORDER", desc: "We finalise plans, you approve and place your order." },
-    { num: 3, icon: "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4", title: "PREPARE & SETUP", desc: "We build off-site while you prepare your site." },
+    { num: 2, icon: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z", title: "APPROVAL & CERTIFICATION", desc: "We handle your Class 1a council approval while Expandihome prepares your home." },
+    { num: 3, icon: "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4", title: "SITE PREPARATION", desc: "Your home is built off-site while we prepare your approvals and site works." },
     { num: 4, icon: "M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4", title: "DELIVER & INSTALL", desc: "Delivered to your site and ready to install with ease." },
   ];
 
@@ -258,7 +281,8 @@ function HowItWorks() {
           </div>
           <div>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 relative">
-              <div className="hidden sm:block absolute top-6 left-[12.5%] right-[12.5%] h-px bg-gold/20" style={{ top: '28px' }} />
+              {/* Dashed connecting line */}
+              <div className="hidden sm:block absolute left-[12.5%] right-[12.5%] border-t-2 border-dashed border-gold/30" style={{ top: '28px' }} />
               {steps.map((s) => (
                 <div key={s.num} className="text-center relative">
                   <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-gold text-white text-lg font-bold mb-3 relative z-10 shadow-md">
@@ -281,11 +305,88 @@ function HowItWorks() {
   );
 }
 
+/* ───────────────────────── MEET BRETT ───────────────────────── */
+function MeetBrett() {
+  return (
+    <section id="meet-brett" className="py-16 lg:py-24 bg-white">
+      <div className="max-w-6xl mx-auto px-6 sm:px-10 lg:px-16">
+        <div className="grid lg:grid-cols-[280px_1fr] gap-10 lg:gap-16 items-start">
+          <div>
+            <h2 className="text-xl lg:text-2xl font-bold text-navy leading-tight">MEET BRETT</h2>
+            <p className="text-gray-500 mt-3 text-sm leading-relaxed">
+              Your dedicated building approval specialist. Brett partners exclusively with Expandihome to handle cyclone-rated and regular Class 1a council-approved homes across Australia.
+            </p>
+            <a href="#contact" className="inline-flex items-center gap-2 mt-5 border-2 border-navy text-navy px-5 py-2.5 rounded-full text-xs font-semibold hover:bg-navy hover:text-white transition-colors">
+              ASK A QUESTION
+              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+            </a>
+          </div>
+          <div>
+            {/* Upcoming consultation card */}
+            <div className="rounded-2xl border-2 border-gold/30 bg-cream p-8 lg:p-10">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-10 h-10 rounded-full bg-gold flex items-center justify-center">
+                  <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <h3 className="text-lg font-bold text-navy">Upcoming Consultation Day</h3>
+              </div>
+              <div className="grid sm:grid-cols-2 gap-6">
+                <div>
+                  <div className="flex items-center gap-3 mb-4">
+                    <svg className="w-5 h-5 text-gold flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                    <div>
+                      <p className="text-sm font-bold text-navy">Saturday, May 30th</p>
+                      <p className="text-xs text-gray-500">10:00 AM - 12:00 PM</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <svg className="w-5 h-5 text-gold flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                    <div>
+                      <p className="text-sm font-bold text-navy">Expandihome Offices</p>
+                      <p className="text-xs text-gray-500">43 Cairns St, Loganholme QLD 4129</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="flex flex-col justify-between">
+                  <p className="text-sm text-gray-600 leading-relaxed">
+                    Meet Brett in person to discuss Class 1a council approvals, cyclone-rated builds for northern coastal areas, and everything you need to know about your expandable home.
+                  </p>
+                  <a href="#contact" className="inline-flex items-center justify-center gap-2 mt-4 bg-gold hover:bg-gold-dark text-white px-6 py-3 rounded-full text-sm font-semibold transition-colors">
+                    BOOK YOUR SPOT
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+            {/* Info note about cyclone builds */}
+            <div className="mt-6 flex items-start gap-3 bg-navy/5 rounded-xl p-5">
+              <svg className="w-5 h-5 text-gold flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <p className="text-sm text-gray-600 leading-relaxed">
+                <span className="font-semibold text-navy">Cyclone-rated builds available</span> - We offer cyclone-rated expandable homes for coastal northern Australia above Bundaberg, QLD. Ask Brett about certification requirements for your region.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ───────────────────────── CUSTOMISE ───────────────────────── */
 function CustomiseSection() {
-  const options = ["Layout Options", "Cladding Choices", "Flooring Selections", "Window & Door Options", "Accessories & Inclusions"];
+  const options = ["Layout Options", "Cladding Choices", "Flooring Selections", "Window & Door Options", "Accessories & Inclusions", "Cyclone-Rated Options"];
 
   return (
-    <section className="py-16 lg:py-24 bg-white">
+    <section className="py-16 lg:py-24 bg-gray-warm">
       <div className="max-w-6xl mx-auto px-6 sm:px-10 lg:px-16">
         <div className="grid lg:grid-cols-3 gap-12 lg:gap-16 items-center">
           <div>
@@ -337,20 +438,23 @@ function CustomiseSection() {
   );
 }
 
+/* ───────────────────────── FAQ ───────────────────────── */
 function FAQSection() {
   const faqs = [
     { q: "Are your homes council approved?", a: "Yes, all our homes are designed and engineered to meet Class 1a building standards. We handle the full council approval process for you." },
-    { q: "How long does delivery take?", a: "From order to delivery is approximately 90 days. Your home is built off-site while you prepare your land and complete the council approval process." },
+    { q: "How long does delivery take?", a: "From order to delivery is approximately 90 days. Your home is built overseas while we work to complete your council approval and site preparation, so everything is ready when your home arrives." },
     { q: "Can I customise the layout and finishes?", a: "Absolutely. You can choose your layout, cladding, flooring, window styles, and accessories to create a home that suits your needs." },
     { q: "What is included in the base price?", a: "The base price includes the complete home structure, internal fit-out, kitchen, bathroom, flooring, and standard finishes. Council approval fees are additional." },
-    { q: "Do I need council approval on my block?", a: "Yes, council approval is required for all permanent dwellings. We manage this entire process for you as part of our service." },
+    { q: "Do I need council approval on my block?", a: "Yes, council approval is required for all permanent dwellings. Brett handles the entire approval and certification process for you as part of our service." },
     { q: "How long does installation take?", a: "Installation is typically completed within 1-2 days once your site is prepared and the home arrives. Our team manages the full setup process." },
+    { q: "Do you offer cyclone-rated homes?", a: "Yes, we offer cyclone-rated builds for coastal northern Australia above Bundaberg. Brett works exclusively with Expandihome to ensure your home meets all cyclone rating requirements and Class 1a standards for your region." },
+    { q: "Who builds the home?", a: "Your home is manufactured by Expandihome, our exclusive partner. Approved Expandable Homes handles all council approvals, engineering certification, and ensures your home meets Class 1a standards - including cyclone ratings for northern coastal regions." },
   ];
 
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section id="faqs" className="py-16 lg:py-24 bg-gray-warm">
+    <section id="faqs" className="py-16 lg:py-24 bg-white">
       <div className="max-w-6xl mx-auto px-6 sm:px-10 lg:px-16">
         <div className="flex items-center justify-between mb-10">
           <h2 className="text-xl lg:text-2xl font-bold text-navy">FREQUENTLY ASKED QUESTIONS</h2>
@@ -361,7 +465,7 @@ function FAQSection() {
         </div>
         <div className="grid md:grid-cols-2 gap-4">
           {faqs.map((faq, i) => (
-            <div key={i} className="border border-gray-200 rounded-xl bg-white">
+            <div key={i} className="border border-gray-200 rounded-xl bg-gray-warm">
               <button
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
                 className="w-full flex items-center justify-between p-5 text-left"
@@ -382,6 +486,7 @@ function FAQSection() {
   );
 }
 
+/* ───────────────────────── CONTACT FORM ───────────────────────── */
 function ContactForm() {
   return (
     <section id="contact" className="py-16 lg:py-20 bg-navy">
@@ -409,6 +514,7 @@ function ContactForm() {
   );
 }
 
+/* ───────────────────────── FOOTER ───────────────────────── */
 function Footer() {
   return (
     <footer className="bg-navy border-t border-white/10 py-14">
@@ -424,6 +530,7 @@ function Footer() {
               <li><a href="#how-it-works" className="text-white/50 hover:text-gold text-sm transition-colors">Building Guide</a></li>
               <li><a href="#about" className="text-white/50 hover:text-gold text-sm transition-colors">About Us</a></li>
               <li><a href="#faqs" className="text-white/50 hover:text-gold text-sm transition-colors">FAQs</a></li>
+              <li><a href="#meet-brett" className="text-white/50 hover:text-gold text-sm transition-colors">Meet Brett</a></li>
             </ul>
           </div>
           <div>
@@ -433,6 +540,7 @@ function Footer() {
               <li><a href="#sizes" className="text-white/50 hover:text-gold text-sm transition-colors">30ft Homes</a></li>
               <li><a href="#sizes" className="text-white/50 hover:text-gold text-sm transition-colors">40ft Homes</a></li>
               <li><a href="#designs" className="text-white/50 hover:text-gold text-sm transition-colors">All Designs</a></li>
+              <li><a href="#meet-brett" className="text-white/50 hover:text-gold text-sm transition-colors">Cyclone-Rated Builds</a></li>
               <li><a href="#" className="text-white/50 hover:text-gold text-sm transition-colors">Australia Wide Delivery</a></li>
             </ul>
           </div>
@@ -445,7 +553,7 @@ function Footer() {
               </li>
               <li className="flex items-center gap-2 text-white/50 text-sm">
                 <svg className="w-4 h-4 text-gold flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
-                info@approvedexpandablehomes.com.au
+                answers@approvedexpandables.com
               </li>
               <li className="flex items-start gap-2 text-white/50 text-sm">
                 <svg className="w-4 h-4 text-gold mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
@@ -479,6 +587,7 @@ function Footer() {
   );
 }
 
+/* ───────────────────────── PAGE ───────────────────────── */
 export default function Home() {
   return (
     <>
@@ -490,6 +599,7 @@ export default function Home() {
         <ExploreDesigns />
         <WhyChoose />
         <HowItWorks />
+        <MeetBrett />
         <CustomiseSection />
         <FAQSection />
         <ContactForm />
