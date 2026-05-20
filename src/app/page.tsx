@@ -92,6 +92,24 @@ function Hero() {
             Get a Quote <span className="inline-block transition-transform group-hover:translate-x-[3px]">&rarr;</span>
           </a>
         </div>
+
+        {/* Cyclone Rating Announcement */}
+        <div className="mt-8 max-w-[520px]">
+          <a href="#meet-brett" className="group flex items-center gap-3.5 bg-white/10 backdrop-blur-sm border border-white/20 rounded-[6px] px-5 py-3.5 transition-all hover:bg-white/15 hover:border-gold/40">
+            <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gold/20 border border-gold/40 flex items-center justify-center">
+              <svg className="w-5 h-5 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+                <path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2" />
+              </svg>
+            </div>
+            <div className="flex-1 min-w-0">
+              <p className="text-gold text-[13px] font-semibold tracking-[0.04em] uppercase">Now Offering Cyclone-Rated Builds</p>
+              <p className="text-[12.5px] text-white/70 mt-0.5">Engineered for northern coastal Australia above Bundaberg, QLD</p>
+            </div>
+            <svg className="w-4 h-4 text-white/40 flex-shrink-0 transition-transform group-hover:translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+              <path d="M9 18l6-6-6-6" />
+            </svg>
+          </a>
+        </div>
       </div>
     </section>
   );
