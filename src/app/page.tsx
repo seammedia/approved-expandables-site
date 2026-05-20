@@ -8,29 +8,29 @@ function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const chevron = (
-    <svg className="w-3 h-3 ml-1 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+    <svg className="w-[10px] h-[10px] opacity-70" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={3}>
+      <path d="M6 9l6 6 6-6" />
     </svg>
   );
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-navy/95 backdrop-blur-sm">
-      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 flex items-center justify-between h-20">
+      <div className="max-w-[1280px] mx-auto px-5 md:px-10 flex items-center justify-between h-[72px]">
         <a href="#" className="flex-shrink-0">
           <Image src="/images/logo.png" alt="Approved Expandable Homes" width={160} height={70} className="h-14 w-auto" />
         </a>
         <nav className="hidden lg:flex items-center gap-8">
-          <a href="#designs" className="flex items-center text-white hover:text-gold transition-colors text-sm font-medium">
+          <a href="#designs" className="flex items-center gap-1.5 text-white hover:text-gold transition-colors text-[13.5px] font-medium whitespace-nowrap">
             Home Designs {chevron}
           </a>
-          <a href="#how-it-works" className="flex items-center text-white hover:text-gold transition-colors text-sm font-medium">
+          <a href="#how-it-works" className="flex items-center gap-1.5 text-white hover:text-gold transition-colors text-[13.5px] font-medium whitespace-nowrap">
             Building Guide {chevron}
           </a>
-          <a href="#about" className="text-white hover:text-gold transition-colors text-sm font-medium">About Us</a>
-          <a href="#faqs" className="text-white hover:text-gold transition-colors text-sm font-medium">FAQs</a>
-          <a href="#meet-brett" className="text-white hover:text-gold transition-colors text-sm font-medium">Meet Brett</a>
-          <a href="#contact" className="bg-gold hover:bg-gold-dark text-white px-6 py-2.5 rounded-full text-sm font-semibold transition-colors">
-            GET A QUOTE
+          <a href="#about" className="text-white hover:text-gold transition-colors text-[13.5px] font-medium">About Us</a>
+          <a href="#faqs" className="text-white hover:text-gold transition-colors text-[13.5px] font-medium">FAQs</a>
+          <a href="#meet-brett" className="text-white hover:text-gold transition-colors text-[13.5px] font-medium">Meet Brett</a>
+          <a href="#contact" className="inline-flex items-center justify-center gap-2.5 bg-gold hover:bg-gold-soft text-navy px-[26px] py-3.5 rounded-[3px] text-[13px] font-semibold tracking-[0.08em] uppercase transition-colors">
+            Get a Quote
           </a>
         </nav>
         <button onClick={() => setMobileOpen(!mobileOpen)} className="lg:hidden text-white p-2" aria-label="Toggle menu">
@@ -44,13 +44,13 @@ function Header() {
         </button>
       </div>
       {mobileOpen && (
-        <div className="lg:hidden bg-navy border-t border-white/10 px-6 pb-4">
+        <div className="lg:hidden bg-navy border-t border-white/10 px-5 pb-4">
           <a href="#designs" onClick={() => setMobileOpen(false)} className="block py-3 text-white hover:text-gold text-sm">Home Designs</a>
           <a href="#how-it-works" onClick={() => setMobileOpen(false)} className="block py-3 text-white hover:text-gold text-sm">Building Guide</a>
           <a href="#about" onClick={() => setMobileOpen(false)} className="block py-3 text-white hover:text-gold text-sm">About Us</a>
           <a href="#faqs" onClick={() => setMobileOpen(false)} className="block py-3 text-white hover:text-gold text-sm">FAQs</a>
           <a href="#meet-brett" onClick={() => setMobileOpen(false)} className="block py-3 text-white hover:text-gold text-sm">Meet Brett</a>
-          <a href="#contact" onClick={() => setMobileOpen(false)} className="block mt-2 bg-gold text-white px-6 py-2.5 rounded-full text-sm font-semibold text-center">GET A QUOTE</a>
+          <a href="#contact" onClick={() => setMobileOpen(false)} className="block mt-2 bg-gold text-navy px-6 py-3 rounded-[3px] text-[13px] font-semibold tracking-[0.08em] uppercase text-center">Get a Quote</a>
         </div>
       )}
     </header>
@@ -60,28 +60,36 @@ function Header() {
 /* ───────────────────────── HERO ───────────────────────── */
 function Hero() {
   return (
-    <section className="relative min-h-[600px] lg:min-h-[700px] flex items-center pt-20">
-      <div className="absolute inset-0">
-        <Image src="/images/hero-home.jpeg" alt="Expandable Home" fill className="object-cover" preload />
-        <div className="absolute inset-0 bg-gradient-to-r from-navy/80 via-navy/50 to-transparent" />
+    <section className="relative min-h-[560px] lg:min-h-[620px] flex flex-col bg-[#0f141a] overflow-hidden">
+      <div className="absolute inset-0 z-[1]">
+        <Image src="/images/hero-home.jpeg" alt="Expandable Home" fill className="object-cover object-[center_right]" preload />
       </div>
-      <div className="relative max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 py-20 w-full">
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight max-w-2xl">
+      {/* gradient shades */}
+      <div className="absolute inset-0 z-[2]" style={{ background: 'linear-gradient(90deg, rgba(15,20,26,0.98) 0%, rgba(15,20,26,0.88) 26%, rgba(15,20,26,0.55) 46%, rgba(15,20,26,0.15) 70%, rgba(15,20,26,0.05) 100%)' }} />
+      <div className="absolute inset-0 z-[3] pointer-events-none" style={{ background: 'linear-gradient(180deg, transparent 65%, rgba(15,20,26,0.4) 100%)' }} />
+
+      {/* spacer for fixed nav */}
+      <div className="h-[72px]" />
+
+      <div className="relative z-[5] max-w-[1280px] mx-auto px-5 md:px-10 py-[60px] flex-1 flex flex-col justify-center w-full">
+        <h1 className="text-[clamp(48px,5.4vw,76px)] leading-[1.04] font-bold tracking-[-0.02em] text-white max-w-[680px]">
           Australian Council<br />
           Approved<br />
           <span className="text-gold">Expandable</span> Homes
         </h1>
-        <p className="mt-4 text-white/90 text-lg">
-          From $65,000 &bull; 1, 2 &amp; 3 Bedroom Layouts &bull; Custom Designed
-        </p>
-        <div className="mt-8 flex flex-wrap gap-4">
-          <a href="#sizes" className="inline-flex items-center gap-2 bg-gold hover:bg-gold-dark text-white px-8 py-3.5 rounded-full font-semibold transition-colors text-sm">
-            VIEW OUR RANGE
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+        <div className="flex items-center gap-3.5 mt-6 mb-8 text-sm text-[#d7d9dc] flex-wrap">
+          <span><strong className="text-white">From $65,000</strong></span>
+          <span className="w-1 h-1 rounded-full bg-gold" />
+          <span>1, 2 &amp; 3 Bedroom Layouts</span>
+          <span className="w-1 h-1 rounded-full bg-gold" />
+          <span>Custom Designed</span>
+        </div>
+        <div className="flex gap-3.5 flex-wrap">
+          <a href="#sizes" className="inline-flex items-center justify-center gap-2.5 bg-gold hover:bg-gold-soft text-navy px-[26px] py-3.5 rounded-[3px] font-semibold text-[13px] tracking-[0.08em] uppercase transition-colors group">
+            View Our Range <span className="inline-block transition-transform group-hover:translate-x-[3px]">&rarr;</span>
           </a>
-          <a href="#contact" className="inline-flex items-center gap-2 border-2 border-white text-white px-8 py-3.5 rounded-full font-semibold hover:bg-white/10 transition-colors text-sm">
-            GET A QUOTE
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+          <a href="#contact" className="inline-flex items-center justify-center gap-2.5 border-[1.5px] border-white text-white px-[26px] py-3.5 rounded-[3px] font-semibold text-[13px] tracking-[0.08em] uppercase transition-colors hover:bg-white hover:text-navy group">
+            Get a Quote <span className="inline-block transition-transform group-hover:translate-x-[3px]">&rarr;</span>
           </a>
         </div>
       </div>
@@ -92,26 +100,53 @@ function Hero() {
 /* ───────────────────────── FEATURE STRIP ───────────────────────── */
 function FeatureStrip() {
   const features = [
-    { icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z", title: "Council Approved", desc: "Class 1a building approval compliant across Australia" },
-    { icon: "M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z", title: "Custom Designed", desc: "Tailored layouts, finishes and inclusions" },
-    { icon: "M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z", title: "One-Step Certified", desc: "Engineered, certified and ready to build" },
-    { icon: "M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z M15 11a3 3 0 11-6 0 3 3 0 016 0z", title: "Australia Wide Delivery", desc: "Delivered to your site, coast to coast" },
-    { icon: "M12 3v1m0 16v1m8.66-13.66l-.71.71M4.05 19.95l-.71.71M21 12h-1M4 12H3m16.66 7.66l-.71-.71M4.05 4.05l-.71-.71M16 12a4 4 0 11-8 0 4 4 0 018 0z", title: "Cyclone Rated Builds", desc: "Cyclone-rated homes for northern coastal Australia" },
+    {
+      icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6}><path d="M12 2 L3 6 V12 C3 17 7 21 12 22 C17 21 21 17 21 12 V6 Z" /><path d="M9 12 l2 2 l4-4" strokeLinecap="round" strokeLinejoin="round" /></svg>,
+      title: "Council Approved",
+      desc: "Class 1a building approval compliant across Australia",
+    },
+    {
+      icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round"><path d="M14 4l6 6-10 10H4v-6z" /><path d="M13 5l6 6" /><path d="M3 21h7" /></svg>,
+      title: "Custom Designed",
+      desc: "Tailored layouts, finishes and inclusions",
+    },
+    {
+      icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} strokeLinejoin="round"><path d="M12 2l2.5 2 3.5-.5 1 3.5 3 1.5-1.5 3 1 3.5-3 1-1 3.5-3.5-.5L12 22l-2.5-2-3.5.5-1-3.5-3-1.5 1.5-3-1-3.5 3-1 1-3.5 3.5.5z" /><path d="M9 12l2 2 4-4" strokeLinecap="round" /></svg>,
+      title: "One-Step Certified",
+      desc: "Engineered, certified and ready to build",
+    },
+    {
+      icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>,
+      title: "Australia Wide Delivery",
+      desc: "Delivered to your site, coast to coast",
+    },
+    {
+      icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round"><path d="M12 3v1m0 16v1m8.66-13.66l-.71.71M4.05 19.95l-.71.71M21 12h-1M4 12H3m16.66 7.66l-.71-.71M4.05 4.05l-.71-.71M16 12a4 4 0 11-8 0 4 4 0 018 0z" /></svg>,
+      title: "Cyclone Rated Builds",
+      desc: "Cyclone-rated homes for northern coastal Australia",
+    },
   ];
 
   return (
-    <section className="bg-white py-14 border-b border-gray-100">
-      <div className="max-w-6xl mx-auto px-6 sm:px-10 lg:px-16">
-        <div className="grid grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-6">
-          {features.map((f) => (
-            <div key={f.title} className="text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full border-2 border-gold mb-4">
-                <svg className="w-8 h-8 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d={f.icon} />
-                </svg>
+    <section className="bg-navy border-t border-line-dark" style={{ padding: 0 }}>
+      <div className="max-w-[1280px] mx-auto px-5 md:px-10 py-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-0">
+          {features.map((f, i) => (
+            <div
+              key={f.title}
+              className={`flex items-start gap-4 px-4 lg:px-7 ${
+                i < features.length - 1
+                  ? 'border-b sm:border-b lg:border-b-0 lg:border-r border-line-dark pb-5 lg:pb-0'
+                  : ''
+              } ${i > 0 ? 'pt-5 lg:pt-0' : ''} ${i % 2 === 1 && i < features.length - 1 ? 'sm:border-r-0 lg:border-r' : ''}`}
+            >
+              <div className="w-[42px] h-[42px] border-[1.5px] border-gold rounded-full flex items-center justify-center flex-shrink-0">
+                <div className="w-[18px] h-[18px] text-gold">{f.icon}</div>
               </div>
-              <h3 className="font-bold text-navy text-sm">{f.title}</h3>
-              <p className="text-gray-500 text-xs mt-1 leading-relaxed">{f.desc}</p>
+              <div>
+                <h4 className="text-white text-sm font-semibold mb-1">{f.title}</h4>
+                <p className="text-[#a8b0b8] text-xs leading-[1.45]">{f.desc}</p>
+              </div>
             </div>
           ))}
         </div>
@@ -129,30 +164,30 @@ function ThreeSizes() {
   ];
 
   return (
-    <section id="sizes" className="py-16 lg:py-24 bg-white">
-      <div className="max-w-6xl mx-auto px-6 sm:px-10 lg:px-16">
-        <div className="grid lg:grid-cols-[240px_1fr] gap-10 lg:gap-16 items-start">
-          <div>
-            <h2 className="text-xl lg:text-2xl font-bold text-navy leading-tight">THREE FLEXIBLE SIZES</h2>
-            <p className="text-gray-500 mt-3 text-sm leading-relaxed">Smart designs. Maximum space. Built to fit your lifestyle and block.</p>
-            <a href="#designs" className="inline-flex items-center gap-2 mt-5 border-2 border-navy text-navy px-5 py-2.5 rounded-full text-xs font-semibold hover:bg-navy hover:text-white transition-colors">
-              VIEW ALL SIZES
-              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+    <section id="sizes" className="py-20">
+      <div className="max-w-[1280px] mx-auto px-5 md:px-10">
+        <div className="grid lg:grid-cols-[240px_1fr] gap-8 items-start">
+          <div className="pr-6">
+            <h2 className="text-base font-bold tracking-[0.18em] uppercase text-ink mb-3.5">Three Flexible Sizes</h2>
+            <p className="text-[13.5px] text-muted leading-relaxed mb-5">Smart designs. Maximum space.<br />Built to fit your lifestyle and block.</p>
+            <a href="#designs" className="inline-flex items-center justify-center gap-2.5 border-[1.5px] border-gold text-gold px-[18px] py-[11px] rounded-[3px] text-[11px] font-semibold tracking-[0.08em] uppercase transition-colors hover:bg-gold hover:text-navy group">
+              View All Sizes <span className="inline-block transition-transform group-hover:translate-x-[3px]">&rarr;</span>
             </a>
           </div>
-          <div className="grid sm:grid-cols-3 gap-8">
+          <div className="grid sm:grid-cols-3 gap-4">
             {sizes.map((s) => (
-              <div key={s.size} className="group">
-                <div className="relative aspect-[4/3] rounded-xl overflow-hidden bg-gray-100 shadow-sm">
-                  <Image src={s.img} alt={`${s.size} Home`} fill className="object-cover group-hover:scale-105 transition-transform duration-300" />
+              <article key={s.size} className="bg-paper rounded-[6px] overflow-hidden flex flex-col transition-all duration-300 shadow-[0_1px_0_rgba(0,0,0,0.02)] hover:-translate-y-[3px] hover:shadow-[0_12px_28px_rgba(29,36,44,0.08)] group">
+                <div className="aspect-video bg-[#cdc7b9] overflow-hidden">
+                  <Image src={s.img} alt={`${s.size} Home`} width={480} height={270} className="w-full h-full object-cover transition-transform duration-600 group-hover:scale-[1.04]" />
                 </div>
-                <h3 className="font-bold text-navy mt-4 text-base">{s.size} HOMES</h3>
-                <p className="text-gray-500 text-sm mt-1 leading-relaxed">{s.desc}</p>
-                <a href="#contact" className="inline-flex items-center gap-1 text-gold font-semibold text-sm mt-2 hover:text-gold-dark transition-colors">
-                  View Details
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-                </a>
-              </div>
+                <div className="p-5 pb-[22px]">
+                  <h3 className="text-base font-bold tracking-[0.12em] uppercase text-ink mb-2.5">{s.size} Homes</h3>
+                  <p className="text-[13.5px] text-muted leading-[1.55] mb-4 min-h-[42px]">{s.desc}</p>
+                  <a href="#contact" className="text-[11px] font-semibold tracking-[0.12em] uppercase text-gold hover:text-gold-2 inline-flex items-center gap-1.5">
+                    View Details &rarr;
+                  </a>
+                </div>
+              </article>
             ))}
           </div>
         </div>
@@ -170,44 +205,44 @@ function ExploreDesigns() {
   ];
 
   return (
-    <section id="designs" className="py-16 lg:py-24 bg-gray-warm">
-      <div className="max-w-6xl mx-auto px-6 sm:px-10 lg:px-16">
-        <div className="grid lg:grid-cols-[240px_1fr] gap-10 lg:gap-16 items-start">
-          <div>
-            <h2 className="text-xl lg:text-2xl font-bold text-navy leading-tight">EXPLORE HOME DESIGNS</h2>
-            <p className="text-gray-500 mt-3 text-sm leading-relaxed">Beautiful designs. Functional spaces. Built for real life.</p>
-            <a href="#contact" className="inline-flex items-center gap-2 mt-5 border-2 border-navy text-navy px-5 py-2.5 rounded-full text-xs font-semibold hover:bg-navy hover:text-white transition-colors">
-              VIEW ALL DESIGNS
-              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+    <section id="designs" className="pb-20">
+      <div className="max-w-[1280px] mx-auto px-5 md:px-10">
+        <div className="grid lg:grid-cols-[240px_1fr] gap-8 items-start">
+          <div className="pr-6">
+            <h2 className="text-base font-bold tracking-[0.18em] uppercase text-ink mb-3.5">Explore Home Designs</h2>
+            <p className="text-[13.5px] text-muted leading-relaxed mb-5">Beautiful designs. Functional spaces. Built for real life.</p>
+            <a href="#contact" className="inline-flex items-center justify-center gap-2.5 border-[1.5px] border-gold text-gold px-[18px] py-[11px] rounded-[3px] text-[11px] font-semibold tracking-[0.08em] uppercase transition-colors hover:bg-gold hover:text-navy group">
+              View All Designs <span className="inline-block transition-transform group-hover:translate-x-[3px]">&rarr;</span>
             </a>
           </div>
-          <div className="grid sm:grid-cols-3 gap-8">
+          <div className="grid sm:grid-cols-3 gap-4">
             {designs.map((d) => (
-              <div key={d.name} className="group">
-                <div className="relative aspect-[4/3] rounded-xl overflow-hidden bg-gray-200 shadow-sm">
-                  <Image src={d.img} alt={d.name} fill className="object-cover group-hover:scale-105 transition-transform duration-300" />
+              <article key={d.name} className="bg-paper rounded-[6px] overflow-hidden flex flex-col transition-all duration-300 shadow-[0_1px_0_rgba(0,0,0,0.02)] hover:-translate-y-[3px] hover:shadow-[0_12px_28px_rgba(29,36,44,0.08)] group">
+                <div className="aspect-video bg-[#cdc7b9] overflow-hidden">
+                  <Image src={d.img} alt={d.name} width={480} height={270} className="w-full h-full object-cover transition-transform duration-600 group-hover:scale-[1.04]" />
                 </div>
-                <h3 className="font-bold text-navy mt-4 text-base">{d.name}</h3>
-                <div className="flex items-center gap-3 text-gray-400 text-xs mt-1.5">
-                  <span className="flex items-center gap-1">
-                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg>
-                    {d.beds} Bed
-                  </span>
-                  <span className="flex items-center gap-1">
-                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14" /></svg>
-                    {d.baths} Bath
-                  </span>
-                  <span className="flex items-center gap-1">
-                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" /></svg>
-                    {d.size}
-                  </span>
+                <div className="p-5 pb-[22px]">
+                  <h3 className="text-base font-bold tracking-[0.12em] uppercase text-ink mb-2.5">{d.name}</h3>
+                  <div className="flex gap-3.5 mb-2.5 text-muted text-[12.5px]">
+                    <span className="inline-flex items-center gap-1.5">
+                      <svg className="w-[13px] h-[13px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}><path d="M3 12V7a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v5M3 12h18M3 12v6M21 12v6M6 12V9h5v3M13 12V9h5v3" /></svg>
+                      {d.beds} Bed
+                    </span>
+                    <span className="inline-flex items-center gap-1.5">
+                      <svg className="w-[13px] h-[13px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}><path d="M4 12h16v4a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3zM6 12V6a2 2 0 0 1 4 0M6 19v2M18 19v2" /></svg>
+                      {d.baths} Bath
+                    </span>
+                    <span className="inline-flex items-center gap-1.5">
+                      <svg className="w-[13px] h-[13px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}><rect x="3" y="6" width="18" height="12" rx="1" /><path d="M7 6v12M17 6v12" /></svg>
+                      {d.size}
+                    </span>
+                  </div>
+                  <p className="text-[13.5px] text-muted leading-[1.55] mb-4 min-h-[42px]">{d.desc}</p>
+                  <a href="#contact" className="text-[11px] font-semibold tracking-[0.12em] uppercase text-gold hover:text-gold-2 inline-flex items-center gap-1.5">
+                    View Design &rarr;
+                  </a>
                 </div>
-                <p className="text-gray-500 text-sm mt-2 leading-relaxed">{d.desc}</p>
-                <a href="#contact" className="inline-flex items-center gap-1 text-gold font-semibold text-sm mt-2 hover:text-gold-dark transition-colors">
-                  View Design
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-                </a>
-              </div>
+              </article>
             ))}
           </div>
         </div>
@@ -219,37 +254,49 @@ function ExploreDesigns() {
 /* ───────────────────────── WHY CHOOSE ───────────────────────── */
 function WhyChoose() {
   const reasons = [
-    { icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z", title: "Class 1a Council Approval", desc: "Built to meet Australian Standards for complete peace of mind." },
-    { icon: "M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z", title: "Custom Layouts & Finishes", desc: "Choose your layout, cladding, flooring and finishes to suit you." },
-    { icon: "M13 10V3L4 14h7v7l9-11h-7z", title: "Fast, Reliable Delivery", desc: "Engineered off-site for faster build times and on-time delivery." },
-    { icon: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4", title: "Streamlined Approval Process", desc: "We aim to complete your approval and start site works before your home arrives." },
+    {
+      icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6}><path d="M12 2 L4 6 V12 C4 17 7.5 21 12 22 C16.5 21 20 17 20 12 V6 Z" /><path d="M9 12l2 2 4-4" /></svg>,
+      title: "Class 1a Council Approval",
+      desc: "Built to meet Australian Standards for complete peace of mind.",
+    },
+    {
+      icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6}><path d="M4 4h8l8 8v8H4z" /><path d="M14 4v8h8M9 14l3 3M12 11l6 6" /></svg>,
+      title: "Custom Layouts & Finishes",
+      desc: "Choose your layout, cladding, flooring and finishes to suit you.",
+    },
+    {
+      icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6}><circle cx="12" cy="12" r="3" /><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M5 19l2-2M17 7l2-2" /></svg>,
+      title: "Fast, Reliable Delivery",
+      desc: "Engineered off-site for faster build times and on-time delivery.",
+    },
+    {
+      icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6}><rect x="7" y="3" width="10" height="18" rx="1" /><path d="M10 7h4M10 10h4M10 13h3" /><path d="M9 3h6v2H9z" /></svg>,
+      title: "Streamlined Approval Process",
+      desc: "We aim to complete your approval and start site works before your home arrives.",
+    },
   ];
 
   return (
-    <section id="about" className="py-8 lg:py-12 bg-white">
-      <div className="max-w-6xl mx-auto px-6 sm:px-10 lg:px-16">
-        <div className="rounded-2xl overflow-hidden bg-navy">
-          <div className="grid lg:grid-cols-[300px_1fr]">
-            {/* Left - visible house image */}
-            <div className="relative hidden lg:block min-h-[320px]">
-              <Image src="/images/hero-secondary.jpeg" alt="Expandable Home Exterior" fill className="object-cover" />
-            </div>
-            {/* Right - content */}
-            <div className="py-14 lg:py-16 px-8 sm:px-12 lg:px-14">
-              <h2 className="text-xl lg:text-2xl font-bold text-white text-center">WHY CHOOSE APPROVED EXPANDABLE HOMES?</h2>
-              <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6 mt-12">
-                {reasons.map((r) => (
-                  <div key={r.title} className="text-center">
-                    <div className="inline-flex items-center justify-center w-14 h-14 rounded-full border-2 border-gold mb-4">
-                      <svg className="w-7 h-7 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d={r.icon} />
-                      </svg>
-                    </div>
-                    <h3 className="font-bold text-gold text-xs leading-snug">{r.title}</h3>
-                    <p className="text-white/60 text-xs mt-2 leading-relaxed">{r.desc}</p>
+    <section id="about" className="bg-navy text-white py-[90px]">
+      <div className="max-w-[1280px] mx-auto px-5 md:px-10">
+        <div className="grid lg:grid-cols-[340px_1fr] gap-12 items-center">
+          {/* Left - square image */}
+          <div className="aspect-[1/1.05] rounded overflow-hidden bg-[#cdc7b9]">
+            <Image src="/images/hero-secondary.jpeg" alt="Expandable Home Exterior" width={680} height={714} className="w-full h-full object-cover" />
+          </div>
+          {/* Right - content */}
+          <div>
+            <h2 className="text-center text-[22px] font-semibold tracking-[0.05em] mb-12">WHY CHOOSE APPROVED EXPANDABLE HOMES?</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {reasons.map((r) => (
+                <div key={r.title} className="text-center px-2">
+                  <div className="w-14 h-14 border-[1.5px] border-gold rounded-full flex items-center justify-center mx-auto mb-4">
+                    <div className="w-6 h-6 text-gold">{r.icon}</div>
                   </div>
-                ))}
-              </div>
+                  <h4 className="text-sm font-bold mb-2.5 leading-snug">{r.title}</h4>
+                  <p className="text-[12.5px] text-[#a8b0b8] leading-[1.55]">{r.desc}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -261,40 +308,67 @@ function WhyChoose() {
 /* ───────────────────────── HOW IT WORKS ───────────────────────── */
 function HowItWorks() {
   const steps = [
-    { num: 1, icon: "M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6", title: "DESIGN SELECTION", desc: "Choose your home design or customise your own." },
-    { num: 2, icon: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z", title: "APPROVAL & CERTIFICATION", desc: "We handle your Class 1a council approval while Expandihome prepares your home." },
-    { num: 3, icon: "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4", title: "SITE PREPARATION", desc: "Your home is built off-site while we prepare your approvals and site works." },
-    { num: 4, icon: "M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4", title: "DELIVER & INSTALL", desc: "Delivered to your site and ready to install with ease." },
+    {
+      num: 1,
+      icon: <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" strokeWidth={1.5}><path d="M20 6 L6 18 V34 H34 V18 Z" /><rect x="16" y="22" width="8" height="12" /></svg>,
+      title: "DESIGN SELECTION",
+      desc: "Choose your home design or customise your own.",
+    },
+    {
+      num: 2,
+      icon: <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" strokeWidth={1.5}><rect x="10" y="6" width="20" height="28" rx="2" /><path d="M14 14h12M14 20h12M14 26h8" /><path d="M16 4h8v4h-8z" /></svg>,
+      title: "APPROVAL & CERTIFICATION",
+      desc: "We handle your Class 1a council approval while Expandihome prepares your home.",
+    },
+    {
+      num: 3,
+      icon: <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" strokeWidth={1.5}><circle cx="20" cy="20" r="6" /><path d="M20 4v4M20 32v4M4 20h4M32 20h4M8.5 8.5l3 3M28.5 28.5l3 3M8.5 31.5l3-3M28.5 11.5l3-3" /></svg>,
+      title: "SITE PREPARATION",
+      desc: "Your home is built off-site while we prepare your approvals and site works.",
+    },
+    {
+      num: 4,
+      icon: <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" strokeWidth={1.5}><path d="M4 12h18v14H4z M22 16h7l5 5v5h-12z" /><circle cx="11" cy="29" r="3" /><circle cx="28" cy="29" r="3" /></svg>,
+      title: "DELIVER & INSTALL",
+      desc: "Delivered to your site and ready to install with ease.",
+    },
   ];
 
   return (
-    <section id="how-it-works" className="py-16 lg:py-24 bg-gray-warm">
-      <div className="max-w-6xl mx-auto px-6 sm:px-10 lg:px-16">
-        <div className="grid lg:grid-cols-[240px_1fr] gap-10 lg:gap-16 items-start">
-          <div>
-            <h2 className="text-xl lg:text-2xl font-bold text-navy leading-tight">HOW IT WORKS</h2>
-            <p className="text-gray-500 mt-3 text-sm leading-relaxed">A simple 4-step process from design to delivery.</p>
-            <a href="#contact" className="inline-flex items-center gap-2 mt-5 border-2 border-navy text-navy px-5 py-2.5 rounded-full text-xs font-semibold hover:bg-navy hover:text-white transition-colors">
-              LEARN MORE
-              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+    <section id="how-it-works" className="bg-bg py-20">
+      <div className="max-w-[1280px] mx-auto px-5 md:px-10">
+        <div className="grid lg:grid-cols-[240px_1fr] gap-8 items-start">
+          <div className="pr-6">
+            <h2 className="text-base font-bold tracking-[0.18em] uppercase text-ink mb-3.5">How It Works</h2>
+            <p className="text-[13.5px] text-muted leading-relaxed mb-5">A simple 4-step process from design to delivery.</p>
+            <a href="#contact" className="inline-flex items-center justify-center gap-2.5 border-[1.5px] border-gold text-gold px-[18px] py-[11px] rounded-[3px] text-[11px] font-semibold tracking-[0.08em] uppercase transition-colors hover:bg-gold hover:text-navy group">
+              Learn More <span className="inline-block transition-transform group-hover:translate-x-[3px]">&rarr;</span>
             </a>
           </div>
-          <div>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 relative">
-              {/* Dashed connecting line */}
-              <div className="hidden sm:block absolute left-[12.5%] right-[12.5%] border-t-2 border-dashed border-gold/30" style={{ top: '28px' }} />
+          <div className="relative">
+            {/* Dashed connecting line */}
+            <div
+              className="hidden sm:block absolute left-[6%] right-[6%] h-[2px] z-0"
+              style={{
+                top: '24px',
+                backgroundImage: 'linear-gradient(90deg, var(--color-gold) 50%, transparent 50%)',
+                backgroundSize: '10px 2px',
+                backgroundRepeat: 'repeat-x',
+              }}
+            />
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-6 relative">
               {steps.map((s) => (
-                <div key={s.num} className="text-center relative">
-                  <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-gold text-white text-lg font-bold mb-3 relative z-10 shadow-md">
+                <div key={s.num} className="relative z-[1] bg-paper rounded pt-14 pb-6 px-[22px] text-center shadow-[0_1px_0_rgba(0,0,0,0.04)] mt-6">
+                  {/* Number circle */}
+                  <div className="absolute -top-[22px] left-1/2 -translate-x-1/2 w-11 h-11 rounded-full bg-gold text-navy font-extrabold text-lg flex items-center justify-center border-4 border-bg z-10">
                     {s.num}
                   </div>
-                  <div className="inline-flex items-center justify-center w-10 h-10 rounded-full border border-gold/20 mb-3">
-                    <svg className="w-5 h-5 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d={s.icon} />
-                    </svg>
+                  {/* Icon */}
+                  <div className="w-12 h-12 flex items-center justify-center mx-auto mb-3.5 text-navy">
+                    <div className="w-[38px] h-[38px]">{s.icon}</div>
                   </div>
-                  <h3 className="font-bold text-navy text-xs">{s.title}</h3>
-                  <p className="text-gray-400 text-xs mt-1 leading-relaxed">{s.desc}</p>
+                  <h4 className="text-[13px] font-bold tracking-[0.12em] uppercase mb-2.5">{s.title}</h4>
+                  <p className="text-[13px] text-muted leading-[1.55]">{s.desc}</p>
                 </div>
               ))}
             </div>
@@ -308,29 +382,28 @@ function HowItWorks() {
 /* ───────────────────────── MEET BRETT ───────────────────────── */
 function MeetBrett() {
   return (
-    <section id="meet-brett" className="py-16 lg:py-24 bg-white">
-      <div className="max-w-6xl mx-auto px-6 sm:px-10 lg:px-16">
-        <div className="grid lg:grid-cols-[280px_1fr] gap-10 lg:gap-16 items-start">
-          <div>
-            <h2 className="text-xl lg:text-2xl font-bold text-navy leading-tight">MEET BRETT</h2>
-            <p className="text-gray-500 mt-3 text-sm leading-relaxed">
+    <section id="meet-brett" className="py-20 bg-bg">
+      <div className="max-w-[1280px] mx-auto px-5 md:px-10">
+        <div className="grid lg:grid-cols-[240px_1fr] gap-8 items-start">
+          <div className="pr-6">
+            <h2 className="text-base font-bold tracking-[0.18em] uppercase text-ink mb-3.5">Meet Brett</h2>
+            <p className="text-[13.5px] text-muted leading-relaxed mb-5">
               Your dedicated building approval specialist. Brett partners exclusively with Expandihome to handle cyclone-rated and regular Class 1a council-approved homes across Australia.
             </p>
-            <a href="#contact" className="inline-flex items-center gap-2 mt-5 border-2 border-navy text-navy px-5 py-2.5 rounded-full text-xs font-semibold hover:bg-navy hover:text-white transition-colors">
-              ASK A QUESTION
-              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+            <a href="#contact" className="inline-flex items-center justify-center gap-2.5 border-[1.5px] border-gold text-gold px-[18px] py-[11px] rounded-[3px] text-[11px] font-semibold tracking-[0.08em] uppercase transition-colors hover:bg-gold hover:text-navy group">
+              Ask a Question <span className="inline-block transition-transform group-hover:translate-x-[3px]">&rarr;</span>
             </a>
           </div>
           <div>
             {/* Upcoming consultation card */}
-            <div className="rounded-2xl border-2 border-gold/30 bg-cream p-8 lg:p-10">
+            <div className="bg-paper rounded-[6px] border border-line p-8 lg:p-10 shadow-[0_1px_0_rgba(0,0,0,0.02)]">
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-10 h-10 rounded-full bg-gold flex items-center justify-center">
-                  <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                   </svg>
                 </div>
-                <h3 className="text-lg font-bold text-navy">Upcoming Consultation Day</h3>
+                <h3 className="text-lg font-bold text-ink">Upcoming Consultation Day</h3>
               </div>
               <div className="grid sm:grid-cols-2 gap-6">
                 <div>
@@ -339,8 +412,8 @@ function MeetBrett() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                     </svg>
                     <div>
-                      <p className="text-sm font-bold text-navy">Saturday, May 30th</p>
-                      <p className="text-xs text-gray-500">10:00 AM - 12:00 PM</p>
+                      <p className="text-sm font-bold text-ink">Saturday, May 30th</p>
+                      <p className="text-xs text-muted">10:00 AM - 12:00 PM</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
@@ -349,29 +422,28 @@ function MeetBrett() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                     </svg>
                     <div>
-                      <p className="text-sm font-bold text-navy">Expandihome Offices</p>
-                      <p className="text-xs text-gray-500">43 Cairns St, Loganholme QLD 4129</p>
+                      <p className="text-sm font-bold text-ink">Expandihome Offices</p>
+                      <p className="text-xs text-muted">43 Cairns St, Loganholme QLD 4129</p>
                     </div>
                   </div>
                 </div>
                 <div className="flex flex-col justify-between">
-                  <p className="text-sm text-gray-600 leading-relaxed">
+                  <p className="text-[13.5px] text-muted leading-relaxed">
                     Meet Brett in person to discuss Class 1a council approvals, cyclone-rated builds for northern coastal areas, and everything you need to know about your expandable home.
                   </p>
-                  <a href="#contact" className="inline-flex items-center justify-center gap-2 mt-4 bg-gold hover:bg-gold-dark text-white px-6 py-3 rounded-full text-sm font-semibold transition-colors">
-                    BOOK YOUR SPOT
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                  <a href="#contact" className="inline-flex items-center justify-center gap-2.5 mt-4 bg-gold hover:bg-gold-soft text-navy px-6 py-3 rounded-[3px] text-[13px] font-semibold tracking-[0.08em] uppercase transition-colors group">
+                    Book Your Spot <span className="inline-block transition-transform group-hover:translate-x-[3px]">&rarr;</span>
                   </a>
                 </div>
               </div>
             </div>
             {/* Info note about cyclone builds */}
-            <div className="mt-6 flex items-start gap-3 bg-navy/5 rounded-xl p-5">
+            <div className="mt-4 flex items-start gap-3 bg-paper rounded-[6px] p-5 shadow-[0_1px_0_rgba(0,0,0,0.02)]">
               <svg className="w-5 h-5 text-gold flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
-              <p className="text-sm text-gray-600 leading-relaxed">
-                <span className="font-semibold text-navy">Cyclone-rated builds available</span> - We offer cyclone-rated expandable homes for coastal northern Australia above Bundaberg, QLD. Ask Brett about certification requirements for your region.
+              <p className="text-[13.5px] text-muted leading-relaxed">
+                <span className="font-semibold text-ink">Cyclone-rated builds available</span> - We offer cyclone-rated expandable homes for coastal northern Australia above Bundaberg, QLD. Ask Brett about certification requirements for your region.
               </p>
             </div>
           </div>
@@ -386,50 +458,73 @@ function CustomiseSection() {
   const options = ["Layout Options", "Cladding Choices", "Flooring Selections", "Window & Door Options", "Accessories & Inclusions", "Cyclone-Rated Options"];
 
   return (
-    <section className="py-16 lg:py-24 bg-gray-warm">
-      <div className="max-w-6xl mx-auto px-6 sm:px-10 lg:px-16">
-        <div className="grid lg:grid-cols-3 gap-12 lg:gap-16 items-center">
+    <section className="bg-navy text-white py-20">
+      <div className="max-w-[1280px] mx-auto px-5 md:px-10">
+        <div className="grid lg:grid-cols-[240px_1fr_1fr] gap-8 items-center">
+          {/* Left - options list */}
           <div>
-            <h2 className="text-xl lg:text-2xl font-bold text-navy leading-tight">CUSTOMISE YOUR HOME</h2>
-            <p className="text-gray-500 mt-3 text-sm leading-relaxed">Make it yours with a wide range of options and premium finishes.</p>
-            <ul className="mt-6 space-y-3">
+            <h2 className="text-base font-bold tracking-[0.18em] uppercase mb-3.5">Customise Your Home</h2>
+            <p className="text-[13.5px] text-[#a8b0b8] leading-relaxed mb-5">Make it yours with a wide range of options and premium finishes.</p>
+            <ul className="flex flex-col gap-3.5">
               {options.map((opt) => (
-                <li key={opt} className="flex items-center gap-3 text-sm text-gray-700">
-                  <svg className="w-5 h-5 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                  </svg>
+                <li key={opt} className="flex items-center gap-2.5 text-[13.5px] text-[#e0e2e5]">
+                  <svg className="w-4 h-4 text-gold flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}><circle cx="12" cy="12" r="9" /><path d="M8 12l3 3 5-6" /></svg>
                   {opt}
                 </li>
               ))}
             </ul>
           </div>
-          <div>
-            <div className="relative aspect-[3/4] rounded-xl overflow-hidden shadow-lg">
-              <Image src="/images/floor-plan.jpg" alt="Floor Plan" fill className="object-cover" />
-            </div>
+          {/* Center - floor plan */}
+          <div className="aspect-[1.45/1] bg-white rounded overflow-hidden relative">
+            <Image src="/images/floor-plan.jpg" alt="Floor Plan" fill className="object-cover" />
           </div>
+          {/* Right - delivery map */}
           <div>
-            <h3 className="text-xl font-bold text-navy italic">Delivery Australia Wide</h3>
-            <p className="text-gray-500 text-sm mt-2 leading-relaxed">From the city to the coast, we deliver Australia wide.</p>
-            <div className="mt-6">
-              <svg viewBox="0 0 400 380" className="w-full max-w-[280px] mx-auto lg:mx-0" fill="none">
-                <path d="M155 30 L185 25 L220 15 L260 20 L300 30 L340 55 L360 85 L370 120 L375 160 L365 200 L355 230 L340 260 L320 285 L295 305 L265 320 L235 335 L210 345 L185 350 L160 345 L140 335 L120 315 L100 290 L80 265 L65 235 L55 205 L50 175 L55 145 L65 115 L80 85 L100 60 L125 42 Z" fill="#f0ebe0" stroke="#c8a962" strokeWidth="2" />
-                <path d="M310 270 L325 260 L340 265 L345 280 L335 290 L320 285 Z" fill="#f0ebe0" stroke="#c8a962" strokeWidth="2" />
-                <circle cx="300" cy="140" r="6" fill="#c8a962" />
-                <circle cx="260" cy="250" r="6" fill="#c8a962" />
-                <circle cx="190" cy="300" r="6" fill="#c8a962" />
-                <circle cx="110" cy="230" r="6" fill="#c8a962" />
-                <circle cx="140" cy="140" r="6" fill="#c8a962" />
-                <circle cx="230" cy="100" r="6" fill="#c8a962" />
-                <circle cx="220" cy="200" r="8" fill="#1a1f36" />
-                <text x="220" y="200" textAnchor="middle" fill="white" fontSize="6" dy="2">HQ</text>
-                {[
-                  [220, 200, 300, 140], [220, 200, 260, 250], [220, 200, 190, 300],
-                  [220, 200, 110, 230], [220, 200, 140, 140], [220, 200, 230, 100],
-                ].map(([x1, y1, x2, y2], i) => (
-                  <line key={i} x1={x1} y1={y1} x2={x2} y2={y2} stroke="#c8a962" strokeWidth="1" strokeDasharray="4 4" opacity="0.5" />
-                ))}
+            <h3 className="text-2xl font-semibold mb-2">Delivery Australia Wide</h3>
+            <p className="text-[13.5px] text-[#a8b0b8] leading-[1.55] mb-6 max-w-[280px]">From the city to the coast, we deliver Australia wide.</p>
+            <div className="aspect-[1.3/1] rounded relative flex items-center justify-center">
+              <svg viewBox="0 0 400 320" className="w-full h-full" style={{ display: 'block' }}>
+                {/* Australia silhouette */}
+                <path d="M 78 118 C 64 124, 58 138, 56 152 C 53 168, 56 184, 62 198 C 70 214, 84 226, 100 234 C 118 244, 138 252, 158 258 C 178 264, 198 268, 220 268 C 246 268, 270 264, 292 256 C 312 250, 332 242, 344 228 C 354 214, 358 196, 358 178 C 358 162, 354 146, 346 132 C 338 118, 324 106, 308 100 C 290 92, 268 88, 248 88 C 230 86, 212 84, 196 80 C 182 76, 168 72, 154 72 C 138 72, 124 76, 112 84 C 100 90, 88 102, 78 118 Z" fill="#2d3640" stroke="#3a4350" strokeWidth="1" />
+                {/* Tasmania */}
+                <ellipse cx="282" cy="288" rx="14" ry="9" fill="#2d3640" stroke="#3a4350" strokeWidth="1" />
+                {/* Dashed route */}
+                <path d="M 100 195 Q 160 210, 200 200 Q 240 188, 270 170 Q 295 150, 305 130 Q 310 110, 290 95" fill="none" stroke="#d4a14a" strokeWidth="1.5" strokeDasharray="3 4" opacity="0.85" />
+                {/* Truck */}
+                <g transform="translate(76,180)">
+                  <circle cx="12" cy="12" r="22" fill="none" stroke="#d4a14a" strokeWidth="1.2" strokeDasharray="2 3" opacity="0.6" />
+                  <g fill="#d4a14a" stroke="none">
+                    <rect x="0" y="8" width="14" height="10" rx="1" />
+                    <path d="M14 11 h6 l3 3 v4 h-9 z" />
+                    <circle cx="5" cy="19" r="2.2" fill="#1d242c" />
+                    <circle cx="5" cy="19" r="1" fill="#d4a14a" />
+                    <circle cx="18" cy="19" r="2.2" fill="#1d242c" />
+                    <circle cx="18" cy="19" r="1" fill="#d4a14a" />
+                  </g>
+                </g>
               </svg>
+              {/* City pins */}
+              {[
+                { top: '33%', left: '73%', title: 'Brisbane' },
+                { top: '52%', left: '78%', title: 'Sydney' },
+                { top: '62%', left: '70%', title: 'Canberra' },
+                { top: '74%', left: '62%', title: 'Melbourne' },
+                { top: '54%', left: '60%', title: 'Inland' },
+                { top: '88%', left: '69%', title: 'Tasmania' },
+                { top: '42%', left: '62%', title: 'Cairns' },
+              ].map((pin) => (
+                <span
+                  key={pin.title}
+                  className="absolute w-3.5 h-3.5 rounded-full bg-gold"
+                  style={{
+                    top: pin.top,
+                    left: pin.left,
+                    boxShadow: '0 0 0 4px rgba(212,161,74,0.2)',
+                    animation: 'pulse-pin 2.4s infinite',
+                  }}
+                  title={pin.title}
+                />
+              ))}
             </div>
           </div>
         </div>
@@ -442,72 +537,34 @@ function CustomiseSection() {
 function FAQSection() {
   const faqs = [
     { q: "Are your homes council approved?", a: "Yes, all our homes are designed and engineered to meet Class 1a building standards. We handle the full council approval process for you." },
-    { q: "How long does delivery take?", a: "From order to delivery is approximately 90 days. Your home is built overseas while we work to complete your council approval and site preparation, so everything is ready when your home arrives." },
-    { q: "Can I customise the layout and finishes?", a: "Absolutely. You can choose your layout, cladding, flooring, window styles, and accessories to create a home that suits your needs." },
     { q: "What is included in the base price?", a: "The base price includes the complete home structure, internal fit-out, kitchen, bathroom, flooring, and standard finishes. Council approval fees are additional." },
+    { q: "How long does delivery take?", a: "From order to delivery is approximately 90 days. Your home is built overseas while we work to complete your council approval and site preparation, so everything is ready when your home arrives." },
     { q: "Do I need council approval on my block?", a: "Yes, council approval is required for all permanent dwellings. Brett handles the entire approval and certification process for you as part of our service." },
+    { q: "Can I customise the layout and finishes?", a: "Absolutely. You can choose your layout, cladding, flooring, window styles, and accessories to create a home that suits your needs." },
     { q: "How long does installation take?", a: "Installation is typically completed within 1-2 days once your site is prepared and the home arrives. Our team manages the full setup process." },
     { q: "Do you offer cyclone-rated homes?", a: "Yes, we offer cyclone-rated builds for coastal northern Australia above Bundaberg. Brett works exclusively with Expandihome to ensure your home meets all cyclone rating requirements and Class 1a standards for your region." },
     { q: "Who builds the home?", a: "Your home is manufactured by Expandihome, our exclusive partner. Approved Expandable Homes handles all council approvals, engineering certification, and ensures your home meets Class 1a standards - including cyclone ratings for northern coastal regions." },
   ];
 
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
-
   return (
-    <section id="faqs" className="py-16 lg:py-24 bg-white">
-      <div className="max-w-6xl mx-auto px-6 sm:px-10 lg:px-16">
-        <div className="flex items-center justify-between mb-10">
-          <h2 className="text-xl lg:text-2xl font-bold text-navy">FREQUENTLY ASKED QUESTIONS</h2>
-          <a href="#contact" className="hidden sm:inline-flex items-center gap-1 text-gold font-semibold text-sm hover:text-gold-dark">
-            VIEW ALL FAQS
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+    <section id="faqs" className="bg-bg py-20">
+      <div className="max-w-[1280px] mx-auto px-5 md:px-10">
+        <div className="flex items-center justify-between mb-8">
+          <h2 className="text-base font-bold tracking-[0.18em] uppercase text-ink">Frequently Asked Questions</h2>
+          <a href="#contact" className="hidden sm:inline-flex items-center gap-1.5 text-[11px] font-semibold tracking-[0.12em] uppercase text-gold hover:text-gold-2">
+            View All FAQs &rarr;
           </a>
         </div>
-        <div className="grid md:grid-cols-2 gap-4">
+        <div className="grid md:grid-cols-2 gap-3.5">
           {faqs.map((faq, i) => (
-            <div key={i} className="border border-gray-200 rounded-xl bg-gray-warm">
-              <button
-                onClick={() => setOpenIndex(openIndex === i ? null : i)}
-                className="w-full flex items-center justify-between p-5 text-left"
-              >
-                <span className="text-sm font-medium text-navy">{faq.q}</span>
-                <svg className={`w-5 h-5 text-gold flex-shrink-0 ml-3 transition-transform ${openIndex === i ? "rotate-45" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
-                </svg>
-              </button>
-              {openIndex === i && (
-                <div className="px-5 pb-5 text-sm text-gray-500 leading-relaxed">{faq.a}</div>
-              )}
-            </div>
+            <details key={i} className="bg-paper rounded shadow-[0_1px_0_rgba(0,0,0,0.03)] overflow-hidden group">
+              <summary className="list-none flex items-center justify-between p-[18px_22px] text-sm font-medium text-ink cursor-pointer gap-4 [&::-webkit-details-marker]:hidden">
+                <span>{faq.q}</span>
+                <span className="w-[22px] h-[22px] flex items-center justify-center text-muted flex-shrink-0 transition-transform group-open:rotate-45 group-open:text-gold text-lg">+</span>
+              </summary>
+              <div className="px-[22px] pb-5 text-[13.5px] text-muted leading-relaxed">{faq.a}</div>
+            </details>
           ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ───────────────────────── CONTACT FORM ───────────────────────── */
-function ContactForm() {
-  return (
-    <section id="contact" className="py-16 lg:py-20 bg-navy">
-      <div className="max-w-6xl mx-auto px-6 sm:px-10 lg:px-16">
-        <div className="grid lg:grid-cols-[280px_1fr] gap-12 items-center">
-          <div className="text-center lg:text-left">
-            <Image src="/images/logo.png" alt="Approved Expandable Homes" width={200} height={90} className="mx-auto lg:mx-0 mb-4" />
-            <p className="text-white/60 text-sm">Australian Council Approved<br />Expandable Homes</p>
-          </div>
-          <div>
-            <div className="grid sm:grid-cols-2 gap-4">
-              <input type="text" placeholder="Full Name" className="w-full px-4 py-3.5 rounded-lg bg-navy-light border border-white/20 text-white placeholder-white/40 text-sm focus:outline-none focus:border-gold transition-colors" />
-              <input type="email" placeholder="Email Address" className="w-full px-4 py-3.5 rounded-lg bg-navy-light border border-white/20 text-white placeholder-white/40 text-sm focus:outline-none focus:border-gold transition-colors" />
-              <input type="tel" placeholder="Phone Number" className="w-full px-4 py-3.5 rounded-lg bg-navy-light border border-white/20 text-white placeholder-white/40 text-sm focus:outline-none focus:border-gold transition-colors" />
-              <input type="text" placeholder="Postcode" className="w-full px-4 py-3.5 rounded-lg bg-navy-light border border-white/20 text-white placeholder-white/40 text-sm focus:outline-none focus:border-gold transition-colors" />
-            </div>
-            <button className="w-full mt-4 bg-gold hover:bg-gold-dark text-white py-3.5 rounded-lg font-semibold transition-colors flex items-center justify-center gap-2 text-sm">
-              REQUEST A QUOTE
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-            </button>
-          </div>
         </div>
       </div>
     </section>
@@ -517,69 +574,106 @@ function ContactForm() {
 /* ───────────────────────── FOOTER ───────────────────────── */
 function Footer() {
   return (
-    <footer className="bg-navy border-t border-white/10 py-14">
-      <div className="max-w-6xl mx-auto px-6 sm:px-10 lg:px-16">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-10">
+    <footer
+      id="contact"
+      className="bg-navy text-white"
+      style={{
+        backgroundImage: 'linear-gradient(0deg, rgba(29,36,44,0.92), rgba(29,36,44,0.96)), url(/images/hero-secondary.jpeg)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}
+    >
+      <div className="max-w-[1280px] mx-auto px-5 md:px-10">
+        {/* Top: brand + quote form */}
+        <div className="py-[60px] pb-[50px] grid lg:grid-cols-[1fr_1.2fr] gap-[60px] items-center">
           <div>
-            <Image src="/images/logo.png" alt="Approved Expandable Homes" width={140} height={60} className="mb-4" />
+            <div className="flex items-center gap-3 mb-[18px]">
+              <Image src="/images/logo.png" alt="Approved Expandable Homes" width={180} height={80} className="h-14 w-auto" />
+            </div>
+            <p className="text-[13.5px] text-[#cfd2d6] leading-[1.55] max-w-[300px]">Australian Council Approved Expandable Homes</p>
           </div>
+
+          <div className="grid grid-cols-2 gap-3">
+            <input type="text" placeholder="Full Name" className="bg-white border-0 rounded-[3px] px-4 py-3.5 text-[13.5px] text-navy placeholder-[#9aa1a9] font-[inherit]" />
+            <input type="email" placeholder="Email Address" className="bg-white border-0 rounded-[3px] px-4 py-3.5 text-[13.5px] text-navy placeholder-[#9aa1a9] font-[inherit]" />
+            <input type="tel" placeholder="Phone Number" className="bg-white border-0 rounded-[3px] px-4 py-3.5 text-[13.5px] text-navy placeholder-[#9aa1a9] font-[inherit]" />
+            <input type="text" placeholder="Postcode" className="bg-white border-0 rounded-[3px] px-4 py-3.5 text-[13.5px] text-navy placeholder-[#9aa1a9] font-[inherit]" />
+            <button className="col-span-2 bg-gold text-navy py-3.5 rounded-[3px] font-bold text-[13px] tracking-[0.12em] uppercase transition-colors hover:bg-gold-soft">
+              Request a Quote
+            </button>
+          </div>
+        </div>
+
+        {/* Mid: nav columns */}
+        <div className="border-t border-line-dark py-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-9 items-start">
           <div>
-            <h4 className="text-white font-bold text-sm mb-4">NAVIGATION</h4>
-            <ul className="space-y-2.5">
-              <li><a href="#designs" className="text-white/50 hover:text-gold text-sm transition-colors">Home Designs</a></li>
-              <li><a href="#how-it-works" className="text-white/50 hover:text-gold text-sm transition-colors">Building Guide</a></li>
-              <li><a href="#about" className="text-white/50 hover:text-gold text-sm transition-colors">About Us</a></li>
-              <li><a href="#faqs" className="text-white/50 hover:text-gold text-sm transition-colors">FAQs</a></li>
-              <li><a href="#meet-brett" className="text-white/50 hover:text-gold text-sm transition-colors">Meet Brett</a></li>
+            <Image src="/images/logo.png" alt="Approved Expandable Homes" width={140} height={60} className="h-12 w-auto" />
+          </div>
+
+          <div>
+            <h5 className="text-[11px] font-bold tracking-[0.18em] uppercase text-white mb-[18px]">Navigation</h5>
+            <ul className="flex flex-col gap-2.5">
+              <li><a href="#designs" className="text-[13px] text-[#b4b9bf] hover:text-gold transition-colors">Home Designs</a></li>
+              <li><a href="#how-it-works" className="text-[13px] text-[#b4b9bf] hover:text-gold transition-colors">Building Guide</a></li>
+              <li><a href="#about" className="text-[13px] text-[#b4b9bf] hover:text-gold transition-colors">About Us</a></li>
+              <li><a href="#faqs" className="text-[13px] text-[#b4b9bf] hover:text-gold transition-colors">FAQs</a></li>
+              <li><a href="#meet-brett" className="text-[13px] text-[#b4b9bf] hover:text-gold transition-colors">Meet Brett</a></li>
             </ul>
           </div>
+
           <div>
-            <h4 className="text-white font-bold text-sm mb-4">POPULAR</h4>
-            <ul className="space-y-2.5">
-              <li><a href="#sizes" className="text-white/50 hover:text-gold text-sm transition-colors">20ft Homes</a></li>
-              <li><a href="#sizes" className="text-white/50 hover:text-gold text-sm transition-colors">30ft Homes</a></li>
-              <li><a href="#sizes" className="text-white/50 hover:text-gold text-sm transition-colors">40ft Homes</a></li>
-              <li><a href="#designs" className="text-white/50 hover:text-gold text-sm transition-colors">All Designs</a></li>
-              <li><a href="#meet-brett" className="text-white/50 hover:text-gold text-sm transition-colors">Cyclone-Rated Builds</a></li>
-              <li><a href="#" className="text-white/50 hover:text-gold text-sm transition-colors">Australia Wide Delivery</a></li>
+            <h5 className="text-[11px] font-bold tracking-[0.18em] uppercase text-white mb-[18px]">Popular</h5>
+            <ul className="flex flex-col gap-2.5">
+              <li><a href="#sizes" className="text-[13px] text-[#b4b9bf] hover:text-gold transition-colors">20ft Homes</a></li>
+              <li><a href="#sizes" className="text-[13px] text-[#b4b9bf] hover:text-gold transition-colors">30ft Homes</a></li>
+              <li><a href="#sizes" className="text-[13px] text-[#b4b9bf] hover:text-gold transition-colors">40ft Homes</a></li>
+              <li><a href="#designs" className="text-[13px] text-[#b4b9bf] hover:text-gold transition-colors">All Designs</a></li>
+              <li><a href="#meet-brett" className="text-[13px] text-[#b4b9bf] hover:text-gold transition-colors">Cyclone-Rated Builds</a></li>
+              <li><a href="#" className="text-[13px] text-[#b4b9bf] hover:text-gold transition-colors">Australia Wide Delivery</a></li>
             </ul>
           </div>
+
           <div>
-            <h4 className="text-white font-bold text-sm mb-4">CONTACT US</h4>
-            <ul className="space-y-2.5">
-              <li className="flex items-center gap-2 text-white/50 text-sm">
-                <svg className="w-4 h-4 text-gold flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+            <h5 className="text-[11px] font-bold tracking-[0.18em] uppercase text-white mb-[18px]">Contact Us</h5>
+            <div className="flex flex-col gap-2.5">
+              <div className="flex items-start gap-2.5 text-[13px] text-[#b4b9bf]">
+                <svg className="w-3.5 h-3.5 text-gold mt-[3px] flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.91.32 1.8.59 2.65a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.43-1.16a2 2 0 0 1 2.11-.45c.85.27 1.74.47 2.65.59A2 2 0 0 1 22 16.92z" /></svg>
                 0415 228 171
-              </li>
-              <li className="flex items-center gap-2 text-white/50 text-sm">
-                <svg className="w-4 h-4 text-gold flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+              </div>
+              <div className="flex items-start gap-2.5 text-[13px] text-[#b4b9bf]">
+                <svg className="w-3.5 h-3.5 text-gold mt-[3px] flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}><rect x="3" y="5" width="18" height="14" rx="2" /><path d="M3 7l9 6 9-6" /></svg>
                 answers@approvedexpandables.com
-              </li>
-              <li className="flex items-start gap-2 text-white/50 text-sm">
-                <svg className="w-4 h-4 text-gold mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+              </div>
+              <div className="flex items-start gap-2.5 text-[13px] text-[#b4b9bf]">
+                <svg className="w-3.5 h-3.5 text-gold mt-[3px] flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}><path d="M12 22s8-7.5 8-13a8 8 0 1 0-16 0c0 5.5 8 13 8 13z" /><circle cx="12" cy="9" r="3" /></svg>
                 Australia Wide Delivery
-              </li>
-            </ul>
+              </div>
+            </div>
           </div>
+
           <div>
-            <h4 className="text-white font-bold text-sm mb-4">FOLLOW US</h4>
-            <div className="flex gap-3">
-              {["facebook", "instagram", "youtube", "pinterest"].map((social) => (
-                <a key={social} href="#" className="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-white/50 hover:border-gold hover:text-gold transition-colors" aria-label={social}>
-                  {social === "facebook" && <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" /></svg>}
-                  {social === "instagram" && <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" strokeWidth="2" /><circle cx="12" cy="12" r="5" strokeWidth="2" /><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" /></svg>}
-                  {social === "youtube" && <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M23 9.71a8.5 8.5 0 00-.91-4.13 2.92 2.92 0 00-1.72-1A78.36 78.36 0 0012 4.27a78.45 78.45 0 00-8.34.3 2.87 2.87 0 00-1.46.74c-.9.83-1 2.25-1.1 3.45a48.29 48.29 0 000 6.48 9.55 9.55 0 00.64 2.79 2.67 2.67 0 001.6 1.33c1.06.28 5.23.43 8.66.43s7.59-.16 8.65-.43a2.65 2.65 0 001.6-1.33 9.37 9.37 0 00.64-2.79c.1-.86.22-1.72.22-2.59v-1.68zM9.74 14.85V8.84l5.73 3-5.73 3.01z" /></svg>}
-                  {social === "pinterest" && <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.08 3.15 9.42 7.6 11.17-.1-.94-.19-2.38.04-3.41.21-.93 1.36-5.77 1.36-5.77s-.35-.69-.35-1.72c0-1.61.93-2.81 2.1-2.81.99 0 1.47.74 1.47 1.63 0 .99-.63 2.48-.96 3.86-.27 1.15.58 2.09 1.71 2.09 2.06 0 3.64-2.17 3.64-5.3 0-2.77-1.99-4.7-4.83-4.7-3.29 0-5.22 2.47-5.22 5.02 0 .99.38 2.06.86 2.64.09.11.1.21.08.32-.09.36-.29 1.15-.33 1.31-.05.22-.18.26-.41.16-1.53-.71-2.49-2.95-2.49-4.75 0-3.87 2.81-7.42 8.11-7.42 4.26 0 7.57 3.03 7.57 7.1 0 4.23-2.67 7.63-6.37 7.63-1.24 0-2.41-.65-2.81-1.41l-.77 2.92c-.28 1.07-1.03 2.41-1.53 3.23 1.15.36 2.37.55 3.64.55 6.63 0 12-5.37 12-12C24 5.37 18.63 0 12 0z" /></svg>}
+            <h5 className="text-[11px] font-bold tracking-[0.18em] uppercase text-white mb-[18px]">Follow Us</h5>
+            <div className="flex gap-2.5">
+              {[
+                { label: "Facebook", icon: <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-8h3l1-4h-4V7c0-1.1.4-2 2-2h2V1.2C16.6 1.1 15.4 1 14 1c-3 0-5 1.8-5 5v4H6v4h3v8h4z" /></svg> },
+                { label: "Instagram", icon: <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8}><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r="1" fill="currentColor" /></svg> },
+                { label: "YouTube", icon: <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M21.6 7.2c-.2-1.2-1-2-2.2-2.2C17.5 4.8 12 4.8 12 4.8s-5.5 0-7.4.2c-1.2.2-2 1-2.2 2.2C2.2 9.1 2.2 12 2.2 12s0 2.9.2 4.8c.2 1.2 1 2 2.2 2.2 1.9.2 7.4.2 7.4.2s5.5 0 7.4-.2c1.2-.2 2-1 2.2-2.2.2-1.9.2-4.8.2-4.8s0-2.9-.2-4.8zM10 15.4V8.6L15.8 12 10 15.4z" /></svg> },
+                { label: "Pinterest", icon: <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12c0 4.2 2.6 7.8 6.3 9.3-.1-.8-.2-2 0-2.9.2-.8 1.2-5.2 1.2-5.2s-.3-.6-.3-1.6c0-1.4.8-2.5 1.9-2.5.9 0 1.3.7 1.3 1.5 0 .9-.6 2.3-.9 3.5-.3 1.1.5 2 1.6 2 1.9 0 3.4-2 3.4-5 0-2.6-1.9-4.4-4.5-4.4-3.1 0-4.9 2.3-4.9 4.7 0 .9.4 1.9.8 2.5.1.1.1.2.1.3-.1.4-.3 1.1-.3 1.3 0 .2-.2.3-.4.2-1.5-.7-2.4-2.8-2.4-4.5 0-3.7 2.7-7 7.7-7 4 0 7.2 2.9 7.2 6.7 0 4-2.5 7.3-6.1 7.3-1.2 0-2.3-.6-2.7-1.4l-.7 2.8c-.3 1-1 2.2-1.5 3 1.1.3 2.3.5 3.5.5 5.5 0 10-4.5 10-10S17.5 2 12 2z" /></svg> },
+              ].map((social) => (
+                <a key={social.label} href="#" className="w-[34px] h-[34px] border border-[#b4b9bf] rounded-full flex items-center justify-center text-white hover:bg-gold hover:border-gold hover:text-navy transition-colors" aria-label={social.label}>
+                  {social.icon}
                 </a>
               ))}
             </div>
           </div>
         </div>
-        <div className="mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-white/30 text-xs">&copy; {new Date().getFullYear()} Approved Expandable Homes. All Rights Reserved.</p>
+
+        {/* Bottom: copyright */}
+        <div className="border-t border-line-dark py-[22px] flex flex-col sm:flex-row items-center justify-between gap-2.5 text-xs text-[#8a909a]">
+          <div>&copy; {new Date().getFullYear()} Approved Expandable Homes. All Rights Reserved.</div>
           <div className="flex gap-6">
-            <a href="#" className="text-white/30 hover:text-white/50 text-xs transition-colors">Privacy Policy</a>
-            <a href="#" className="text-white/30 hover:text-white/50 text-xs transition-colors">Terms &amp; Conditions</a>
+            <a href="#" className="hover:text-white/60 transition-colors">Privacy Policy</a>
+            <a href="#" className="hover:text-white/60 transition-colors">Terms &amp; Conditions</a>
           </div>
         </div>
       </div>
@@ -602,7 +696,6 @@ export default function Home() {
         <MeetBrett />
         <CustomiseSection />
         <FAQSection />
-        <ContactForm />
       </main>
       <Footer />
     </>
