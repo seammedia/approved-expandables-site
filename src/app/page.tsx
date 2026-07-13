@@ -693,16 +693,15 @@ function Footer() {
           <div>
             <h5 className="text-[11px] font-bold tracking-[0.18em] uppercase text-white mb-[18px]">Follow Us</h5>
             <div className="flex gap-2.5">
-              {[
-                { label: "Facebook", icon: <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-8h3l1-4h-4V7c0-1.1.4-2 2-2h2V1.2C16.6 1.1 15.4 1 14 1c-3 0-5 1.8-5 5v4H6v4h3v8h4z" /></svg> },
-                { label: "Instagram", icon: <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8}><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r="1" fill="currentColor" /></svg> },
-                { label: "YouTube", icon: <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M21.6 7.2c-.2-1.2-1-2-2.2-2.2C17.5 4.8 12 4.8 12 4.8s-5.5 0-7.4.2c-1.2.2-2 1-2.2 2.2C2.2 9.1 2.2 12 2.2 12s0 2.9.2 4.8c.2 1.2 1 2 2.2 2.2 1.9.2 7.4.2 7.4.2s5.5 0 7.4-.2c1.2-.2 2-1 2.2-2.2.2-1.9.2-4.8.2-4.8s0-2.9-.2-4.8zM10 15.4V8.6L15.8 12 10 15.4z" /></svg> },
-                { label: "Pinterest", icon: <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12c0 4.2 2.6 7.8 6.3 9.3-.1-.8-.2-2 0-2.9.2-.8 1.2-5.2 1.2-5.2s-.3-.6-.3-1.6c0-1.4.8-2.5 1.9-2.5.9 0 1.3.7 1.3 1.5 0 .9-.6 2.3-.9 3.5-.3 1.1.5 2 1.6 2 1.9 0 3.4-2 3.4-5 0-2.6-1.9-4.4-4.5-4.4-3.1 0-4.9 2.3-4.9 4.7 0 .9.4 1.9.8 2.5.1.1.1.2.1.3-.1.4-.3 1.1-.3 1.3 0 .2-.2.3-.4.2-1.5-.7-2.4-2.8-2.4-4.5 0-3.7 2.7-7 7.7-7 4 0 7.2 2.9 7.2 6.7 0 4-2.5 7.3-6.1 7.3-1.2 0-2.3-.6-2.7-1.4l-.7 2.8c-.3 1-1 2.2-1.5 3 1.1.3 2.3.5 3.5.5 5.5 0 10-4.5 10-10S17.5 2 12 2z" /></svg> },
-              ].map((social) => (
-                <a key={social.label} href="#" className="w-[34px] h-[34px] border border-[#b4b9bf] rounded-full flex items-center justify-center text-white hover:bg-gold hover:border-gold hover:text-navy transition-colors" aria-label={social.label}>
-                  {social.icon}
-                </a>
-              ))}
+              <a
+                href="https://www.facebook.com/p/Council-Approved-Expandable-Homes-Australia-61577789785666/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-[34px] h-[34px] border border-[#b4b9bf] rounded-full flex items-center justify-center text-white hover:bg-gold hover:border-gold hover:text-navy transition-colors"
+                aria-label="Facebook"
+              >
+                <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-8h3l1-4h-4V7c0-1.1.4-2 2-2h2V1.2C16.6 1.1 15.4 1 14 1c-3 0-5 1.8-5 5v4H6v4h3v8h4z" /></svg>
+              </a>
             </div>
           </div>
         </div>
