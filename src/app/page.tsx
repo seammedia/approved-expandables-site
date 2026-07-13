@@ -201,7 +201,7 @@ function ThreeSizes() {
                 <div className="p-5 pb-[22px]">
                   <h3 className="text-base font-bold tracking-[0.12em] uppercase text-ink mb-2.5">{s.size} Homes</h3>
                   <p className="text-[13.5px] text-muted leading-[1.55] mb-4 min-h-[42px]">{s.desc}</p>
-                  <a href="#contact" className="text-[11px] font-semibold tracking-[0.12em] uppercase text-gold hover:text-gold-2 inline-flex items-center gap-1.5">
+                  <a href="#customise" className="text-[11px] font-semibold tracking-[0.12em] uppercase text-gold hover:text-gold-2 inline-flex items-center gap-1.5">
                     View Details &rarr;
                   </a>
                 </div>
@@ -229,7 +229,7 @@ function ExploreDesigns() {
           <div className="pr-6">
             <h2 className="text-base font-bold tracking-[0.18em] uppercase text-ink mb-3.5">Explore Home Designs</h2>
             <p className="text-[13.5px] text-muted leading-relaxed mb-5">Beautiful designs. Functional spaces. Built for real life.</p>
-            <a href="#contact" className="inline-flex items-center justify-center gap-2.5 border-[1.5px] border-gold text-gold px-[18px] py-[11px] rounded-[3px] text-[11px] font-semibold tracking-[0.08em] uppercase transition-colors hover:bg-gold hover:text-navy group">
+            <a href="#customise" className="inline-flex items-center justify-center gap-2.5 border-[1.5px] border-gold text-gold px-[18px] py-[11px] rounded-[3px] text-[11px] font-semibold tracking-[0.08em] uppercase transition-colors hover:bg-gold hover:text-navy group">
               View All Designs <span className="inline-block transition-transform group-hover:translate-x-[3px]">&rarr;</span>
             </a>
           </div>
@@ -256,7 +256,7 @@ function ExploreDesigns() {
                     </span>
                   </div>
                   <p className="text-[13.5px] text-muted leading-[1.55] mb-4 min-h-[42px]">{d.desc}</p>
-                  <a href="#contact" className="text-[11px] font-semibold tracking-[0.12em] uppercase text-gold hover:text-gold-2 inline-flex items-center gap-1.5">
+                  <a href="#customise" className="text-[11px] font-semibold tracking-[0.12em] uppercase text-gold hover:text-gold-2 inline-flex items-center gap-1.5">
                     View Design &rarr;
                   </a>
                 </div>
@@ -476,7 +476,7 @@ function CustomiseSection() {
   const options = ["Layout Options", "Cladding Choices", "Flooring Selections", "Window & Door Options", "Accessories & Inclusions", "Cyclone-Rated Options"];
 
   return (
-    <section className="bg-navy text-white py-20">
+    <section id="customise" className="bg-navy text-white py-20">
       <div className="max-w-[1280px] mx-auto px-5 md:px-10">
         <div className="grid lg:grid-cols-[240px_1fr_1fr] gap-8 items-center">
           {/* Left - options list */}
@@ -591,6 +591,27 @@ function FAQSection() {
 
 /* ───────────────────────── FOOTER ───────────────────────── */
 function Footer() {
+  const handleQuote = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const data = new FormData(e.currentTarget);
+    const name = String(data.get("name") || "").trim();
+    const email = String(data.get("email") || "").trim();
+    const phone = String(data.get("phone") || "").trim();
+    const postcode = String(data.get("postcode") || "").trim();
+    const subject = `Quote request${name ? ` from ${name}` : ""}`;
+    const body =
+      `Hi Approved Expandable Homes team,\n\n` +
+      `I'd like to request a quote. My details are below.\n\n` +
+      `Name: ${name}\n` +
+      `Email: ${email}\n` +
+      `Phone: ${phone}\n` +
+      `Postcode: ${postcode}\n\n` +
+      `Thanks.`;
+    window.location.href = `mailto:answers@approvedexpandables.com?subject=${encodeURIComponent(
+      subject
+    )}&body=${encodeURIComponent(body)}`;
+  };
+
   return (
     <footer
       id="contact"
@@ -611,15 +632,15 @@ function Footer() {
             <p className="text-[13.5px] text-[#cfd2d6] leading-[1.55] max-w-[300px]">Australian Council Approved Expandable Homes</p>
           </div>
 
-          <div className="grid grid-cols-2 gap-3">
-            <input type="text" placeholder="Full Name" className="bg-white border-0 rounded-[3px] px-4 py-3.5 text-[13.5px] text-navy placeholder-[#9aa1a9] font-[inherit]" />
-            <input type="email" placeholder="Email Address" className="bg-white border-0 rounded-[3px] px-4 py-3.5 text-[13.5px] text-navy placeholder-[#9aa1a9] font-[inherit]" />
-            <input type="tel" placeholder="Phone Number" className="bg-white border-0 rounded-[3px] px-4 py-3.5 text-[13.5px] text-navy placeholder-[#9aa1a9] font-[inherit]" />
-            <input type="text" placeholder="Postcode" className="bg-white border-0 rounded-[3px] px-4 py-3.5 text-[13.5px] text-navy placeholder-[#9aa1a9] font-[inherit]" />
-            <button className="col-span-2 bg-gold text-navy py-3.5 rounded-[3px] font-bold text-[13px] tracking-[0.12em] uppercase transition-colors hover:bg-gold-soft">
+          <form onSubmit={handleQuote} className="grid grid-cols-2 gap-3">
+            <input required name="name" type="text" placeholder="Full Name" className="bg-white border-0 rounded-[3px] px-4 py-3.5 text-[13.5px] text-navy placeholder-[#9aa1a9] font-[inherit]" />
+            <input required name="email" type="email" placeholder="Email Address" className="bg-white border-0 rounded-[3px] px-4 py-3.5 text-[13.5px] text-navy placeholder-[#9aa1a9] font-[inherit]" />
+            <input name="phone" type="tel" placeholder="Phone Number" className="bg-white border-0 rounded-[3px] px-4 py-3.5 text-[13.5px] text-navy placeholder-[#9aa1a9] font-[inherit]" />
+            <input name="postcode" type="text" placeholder="Postcode" className="bg-white border-0 rounded-[3px] px-4 py-3.5 text-[13.5px] text-navy placeholder-[#9aa1a9] font-[inherit]" />
+            <button type="submit" className="col-span-2 bg-gold text-navy py-3.5 rounded-[3px] font-bold text-[13px] tracking-[0.12em] uppercase transition-colors hover:bg-gold-soft">
               Request a Quote
             </button>
-          </div>
+          </form>
         </div>
 
         {/* Mid: nav columns */}
@@ -647,7 +668,7 @@ function Footer() {
               <li><a href="#sizes" className="text-[13px] text-[#b4b9bf] hover:text-gold transition-colors">40ft Homes</a></li>
               <li><a href="#designs" className="text-[13px] text-[#b4b9bf] hover:text-gold transition-colors">All Designs</a></li>
               <li><a href="#meet-brett" className="text-[13px] text-[#b4b9bf] hover:text-gold transition-colors">Cyclone-Rated Builds</a></li>
-              <li><a href="#" className="text-[13px] text-[#b4b9bf] hover:text-gold transition-colors">Australia Wide Delivery</a></li>
+              <li><a href="#about" className="text-[13px] text-[#b4b9bf] hover:text-gold transition-colors">Australia Wide Delivery</a></li>
             </ul>
           </div>
 

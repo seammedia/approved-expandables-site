@@ -19,7 +19,10 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  /* Note: scroll-behavior: smooth was removed - it caused anchor scrolling to
+     stall part-way (links appeared to "not go anywhere"). Instant jump is reliable.
+     scroll-padding-top offsets the fixed 72px header so sections aren't hidden behind it. */
+  scroll-padding-top: 84px;
 }
 
 body {
