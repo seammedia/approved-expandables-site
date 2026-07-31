@@ -597,7 +597,9 @@ function Footer() {
     const name = String(data.get("name") || "").trim();
     const email = String(data.get("email") || "").trim();
     const phone = String(data.get("phone") || "").trim();
+    const propertyAddress = String(data.get("propertyAddress") || "").trim();
     const postcode = String(data.get("postcode") || "").trim();
+    const size = String(data.get("size") || "").trim();
     const subject = `Quote request${name ? ` from ${name}` : ""}`;
     const body =
       `Hi Approved Expandable Homes team,\n\n` +
@@ -605,7 +607,9 @@ function Footer() {
       `Name: ${name}\n` +
       `Email: ${email}\n` +
       `Phone: ${phone}\n` +
-      `Postcode: ${postcode}\n\n` +
+      `Property Address: ${propertyAddress}\n` +
+      `Postcode: ${postcode}\n` +
+      `Home Size: ${size}\n\n` +
       `Thanks.`;
     window.location.href = `mailto:answers@approvedexpandables.com?subject=${encodeURIComponent(
       subject
@@ -637,6 +641,13 @@ function Footer() {
             <input required name="email" type="email" placeholder="Email Address" className="bg-white border-0 rounded-[3px] px-4 py-3.5 text-[13.5px] text-navy placeholder-[#9aa1a9] font-[inherit]" />
             <input name="phone" type="tel" placeholder="Phone Number" className="bg-white border-0 rounded-[3px] px-4 py-3.5 text-[13.5px] text-navy placeholder-[#9aa1a9] font-[inherit]" />
             <input name="postcode" type="text" placeholder="Postcode" className="bg-white border-0 rounded-[3px] px-4 py-3.5 text-[13.5px] text-navy placeholder-[#9aa1a9] font-[inherit]" />
+            <input required name="propertyAddress" type="text" placeholder="Property Address" className="col-span-2 bg-white border-0 rounded-[3px] px-4 py-3.5 text-[13.5px] text-navy placeholder-[#9aa1a9] font-[inherit]" />
+            <select required name="size" defaultValue="" aria-label="Home Size" className="col-span-2 bg-white border-0 rounded-[3px] px-4 py-3.5 text-[13.5px] text-navy font-[inherit]">
+              <option value="" disabled>Home Size</option>
+              <option value="20ft (40 sq mtrs)">20ft (40 sq mtrs)</option>
+              <option value="30ft (60 sq mtrs)">30ft (60 sq mtrs)</option>
+              <option value="40ft (80 sq mtrs)">40ft (80 sq mtrs)</option>
+            </select>
             <button type="submit" className="col-span-2 bg-gold text-navy py-3.5 rounded-[3px] font-bold text-[13px] tracking-[0.12em] uppercase transition-colors hover:bg-gold-soft">
               Request a Quote
             </button>
