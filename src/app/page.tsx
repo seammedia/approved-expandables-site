@@ -430,8 +430,8 @@ function MeetBrett() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                     </svg>
                     <div>
-                      <p className="text-sm font-bold text-ink">Saturday, May 30th</p>
-                      <p className="text-xs text-muted">10:00 AM - 12:00 PM</p>
+                      <p className="text-sm font-bold text-ink">Saturday, August 8</p>
+                      <p className="text-xs text-muted">9:00 AM - 12:00 PM</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
@@ -440,17 +440,17 @@ function MeetBrett() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                     </svg>
                     <div>
-                      <p className="text-sm font-bold text-ink">Expandihome Offices</p>
+                      <p className="text-sm font-bold text-ink">Expandihome Display Offices</p>
                       <p className="text-xs text-muted">43 Cairns St, Loganholme QLD 4129</p>
                     </div>
                   </div>
                 </div>
                 <div className="flex flex-col justify-between">
                   <p className="text-[13.5px] text-muted leading-relaxed">
-                    Meet Brett in person to discuss Class 1a council approvals, cyclone-rated builds for northern coastal areas, and everything you need to know about your expandable home.
+                    A representative will be available to discuss your Class 1a approval questions. Appointments can be made by email before the session.
                   </p>
-                  <a href="#contact" className="inline-flex items-center justify-center gap-2.5 mt-4 bg-gold hover:bg-gold-soft text-navy px-6 py-3 rounded-[3px] text-[13px] font-semibold tracking-[0.08em] uppercase transition-colors group">
-                    Book Your Spot <span className="inline-block transition-transform group-hover:translate-x-[3px]">&rarr;</span>
+                  <a href="mailto:answers@approvedexpandables.com?subject=Class%201a%20consultation%20appointment%20-%20August%208" className="inline-flex items-center justify-center gap-2.5 mt-4 bg-gold hover:bg-gold-soft text-navy px-6 py-3 rounded-[3px] text-[13px] font-semibold tracking-[0.08em] uppercase transition-colors group">
+                    Make an Appointment <span className="inline-block transition-transform group-hover:translate-x-[3px]">&rarr;</span>
                   </a>
                 </div>
               </div>
@@ -491,6 +491,14 @@ function CustomiseSection() {
                 </li>
               ))}
             </ul>
+            <a
+              href="https://expandihome.com.au/pages/class-1a-production-page?_pos=3&_psq=pro&_psid=db5bea0fc&_ss=e"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2.5 mt-6 bg-gold hover:bg-gold-soft text-navy px-[18px] py-[11px] rounded-[3px] text-[11px] font-semibold tracking-[0.08em] uppercase transition-colors group"
+            >
+              Explore Class 1a Choices <span className="inline-block transition-transform group-hover:translate-x-[3px]">&rarr;</span>
+            </a>
           </div>
           {/* Center - floor plan */}
           <div className="aspect-[1.45/1] bg-white rounded overflow-hidden relative">
