@@ -95,13 +95,14 @@ export default function GalleryPage() {
             </div>
 
             <div className="grid md:grid-cols-2 gap-6">
-              {galleryImages.map((image) => (
+              {galleryImages.map((image, index) => (
                 <figure key={image.src} className={`bg-paper rounded-[6px] overflow-hidden border border-line shadow-[0_8px_30px_rgba(29,36,44,0.06)] ${image.className}`}>
                   <div className={`relative overflow-hidden bg-[#cdc7b9] ${image.aspect}`}>
                     <Image
                       src={image.src}
                       alt={image.alt}
                       fill
+                      loading={index === 0 ? "eager" : "lazy"}
                       sizes={image.sizes}
                       className={`object-cover ${image.position}`}
                     />
