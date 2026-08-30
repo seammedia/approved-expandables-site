@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 
 /* ───────────────────────── HEADER ───────────────────────── */
@@ -27,6 +28,7 @@ function Header() {
             Building Guide {chevron}
           </a>
           <a href="#about" className="text-white hover:text-gold transition-colors text-[13.5px] font-medium">About Us</a>
+          <Link href="/gallery" className="text-white hover:text-gold transition-colors text-[13.5px] font-medium">Gallery</Link>
           <a href="#faqs" className="text-white hover:text-gold transition-colors text-[13.5px] font-medium">FAQs</a>
           <a href="#meet-brett" className="text-white hover:text-gold transition-colors text-[13.5px] font-medium">Meet Brett</a>
           <a href="#contact" className="inline-flex items-center justify-center gap-2.5 bg-gold hover:bg-gold-soft text-navy px-[26px] py-3.5 rounded-[3px] text-[13px] font-semibold tracking-[0.08em] uppercase transition-colors">
@@ -48,6 +50,7 @@ function Header() {
           <a href="#designs" onClick={() => setMobileOpen(false)} className="block py-3 text-white hover:text-gold text-sm">Home Designs</a>
           <a href="#how-it-works" onClick={() => setMobileOpen(false)} className="block py-3 text-white hover:text-gold text-sm">Building Guide</a>
           <a href="#about" onClick={() => setMobileOpen(false)} className="block py-3 text-white hover:text-gold text-sm">About Us</a>
+          <Link href="/gallery" onClick={() => setMobileOpen(false)} className="block py-3 text-white hover:text-gold text-sm">Gallery</Link>
           <a href="#faqs" onClick={() => setMobileOpen(false)} className="block py-3 text-white hover:text-gold text-sm">FAQs</a>
           <a href="#meet-brett" onClick={() => setMobileOpen(false)} className="block py-3 text-white hover:text-gold text-sm">Meet Brett</a>
           <a href="#contact" onClick={() => setMobileOpen(false)} className="block mt-2 bg-gold text-navy px-6 py-3 rounded-[3px] text-[13px] font-semibold tracking-[0.08em] uppercase text-center">Get a Quote</a>
@@ -674,6 +677,7 @@ function Footer() {
               <li><a href="#designs" className="text-[13px] text-[#b4b9bf] hover:text-gold transition-colors">Home Designs</a></li>
               <li><a href="#how-it-works" className="text-[13px] text-[#b4b9bf] hover:text-gold transition-colors">Building Guide</a></li>
               <li><a href="#about" className="text-[13px] text-[#b4b9bf] hover:text-gold transition-colors">About Us</a></li>
+              <li><Link href="/gallery" className="text-[13px] text-[#b4b9bf] hover:text-gold transition-colors">Gallery</Link></li>
               <li><a href="#faqs" className="text-[13px] text-[#b4b9bf] hover:text-gold transition-colors">FAQs</a></li>
               <li><a href="#meet-brett" className="text-[13px] text-[#b4b9bf] hover:text-gold transition-colors">Meet Brett</a></li>
             </ul>
